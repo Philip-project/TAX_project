@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-4">
               <img 
                 src="/lovable-uploads/bce15a11-fe78-49dc-8d44-1339cd299a99.png" 
-                alt="ProTax KC & Associates Logo" 
+                alt="ProTax By KC & Associates Logo" 
                 className="h-8 w-auto filter brightness-0 invert"
               />
               <div>
@@ -75,14 +75,14 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={16} className="text-secondary-400" />
-                <span>info@protaxkc.com</span>
+                <span>info@protaxbykc.com</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-300">
-          <p>&copy; 2024 ProTax KC & Associates. All rights reserved.</p>
+          <p>&copy; 2024 ProTax By KC & Associates. All rights reserved.</p>
         </div>
       </div>
     </footer>

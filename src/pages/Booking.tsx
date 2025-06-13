@@ -312,7 +312,7 @@ const Booking = () => {
                     </div>
                     <div className="flex items-center space-x-3">
                       <Mail className="text-secondary-600" size={20} />
-                      <span className="text-gray-700">info@protaxkc.com</span>
+                      <span className="text-gray-700">info@protaxbykc.com</span>
                     </div>
                     <div className="flex items-start space-x-3">
                       <MapPin className="text-secondary-600 mt-1" size={20} />

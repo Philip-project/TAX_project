@@ -66,7 +66,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="font-heading font-bold text-5xl mb-6">About ProTax KC & Associates</h1>
+              <h1 className="font-heading font-bold text-5xl mb-6">About ProTax By KC & Associates</h1>
               <p className="text-xl text-gray-200 leading-relaxed">
                 Your trusted partner in financial success. We combine expertise, 
                 strategy, and personal attention to deliver exceptional results for 
@@ -99,7 +99,7 @@ const About = () => {
               </h2>
               <div className="space-y-6 text-gray-700 leading-relaxed">
                 <p className="text-lg">
-                  ProTax KC and Associates was founded with a simple mission: to provide 
+                  ProTax By KC and Associates was founded with a simple mission: to provide 
                   expert financial guidance that goes beyond traditional accounting services. 
                   We believe that every business and individual deserves access to strategic 
                   financial insights that drive real results.
@@ -163,7 +163,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">
-              Why Choose ProTax KC?
+              Why Choose ProTax By KC?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We go beyond compliance to provide the strategic insights and clarity 

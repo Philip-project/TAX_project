@@ -19,7 +19,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      content: 'info@protaxkc.com',
+      content: 'info@protaxbykc.com',
       description: 'We respond within 24 hours'
     },
     {

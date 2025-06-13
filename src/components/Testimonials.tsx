@@ -9,7 +9,7 @@ const Testimonials = () => {
       name: 'Sarah Johnson',
       company: 'Johnson Consulting LLC',
       rating: 5,
-      text: 'ProTax KC has been instrumental in streamlining our financial processes. Their strategic insights have helped us grow our business by 40% this year.',
+      text: 'ProTax By KC has been instrumental in streamlining our financial processes. Their strategic insights have helped us grow our business by 40% this year.',
       image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face'
     },
     {
@@ -23,7 +23,7 @@ const Testimonials = () => {
       name: 'Lisa Rodriguez',
       company: 'Rodriguez Real Estate',
       rating: 5,
-      text: 'The team at ProTax KC provides exceptional CFO services. Their financial forecasting has been crucial for our expansion plans.',
+      text: 'The team at ProTax By KC provides exceptional CFO services. Their financial forecasting has been crucial for our expansion plans.',
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
     }
   ];
