@@ -28,15 +28,33 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <Link to="/booking">
-                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all">
-                  Get Started Today
-                  <ArrowRight className="ml-2" size={20} />
-                </Button>
+              <Button 
+  size="lg"
+  className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl transform transition-all duration-300 ease-in-out hover:scale-105 group"
+>
+  Get Started Today
+  <ArrowRight 
+    className="ml-2 transition-transform duration-300 ease-in-out group-hover:translate-x-1" 
+    size={20} 
+  />
+</Button>
+
               </Link>
               <Link to="/services">
-                <Button size="lg" variant="outline" className="text-white border-slate-400 hover:bg-white/10 hover:border-white text-lg px-8 py-4 rounded-xl">
-                  Explore Services
-                </Button>
+              <Button 
+  size="lg"
+  className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl transform transition-all duration-300 ease-in-out hover:scale-105 group"
+>
+  Explore Services
+  <ArrowRight 
+    className="ml-2 transition-transform duration-300 ease-in-out group-hover:translate-x-1" 
+    size={20} 
+  />
+</Button>
+
+
+
+
               </Link>
             </div>
           </div>
