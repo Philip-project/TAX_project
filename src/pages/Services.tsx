@@ -1,14 +1,28 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import ChatBot from '@/components/ChatBot';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { FileText, Calculator, Briefcase, Users, CheckCircle, ArrowRight } from 'lucide-react';
 
 const Services = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // If there's a hash in the URL, scroll to that section
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If no hash, scroll to top of the page
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
   const detailedServices = [
     {
       icon: FileText,
@@ -83,7 +97,7 @@ const Services = () => {
         'Investor Relations Support',
         'Risk Management',
         'Capital Structure Planning',
-        'M&A Support',
+        'Software Implementation',
         'Financial Controls Implementation',
         'Executive Reporting'
       ],
@@ -117,7 +131,7 @@ const Services = () => {
           <div className="space-y-20">
             {detailedServices.map((service, index) => (
               <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                <div id={service.title.toLowerCase().includes('cfo') ? 'external-cfo' : service.title.toLowerCase().replace('services', '').trim().replace(/\s+/g, '-')} className={`${index % 2 === 1 ? 'lg:order-2' : ''} scroll-mt-24`}>
                   <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                     <service.icon className="text-primary-900" size={32} />
                   </div>
@@ -139,31 +153,34 @@ const Services = () => {
                   </div>
 
                   <Link to="/booking">
-                    <Button className="bg-primary-900 hover:bg-primary-800 text-white">
-                      Get Started
-                      <ArrowRight className="ml-2" size={20} />
-                    </Button>
-                  </Link>
+  <Button className="bg-primary-900 text-white transition-all duration-300 transform hover:bg-primary-800 hover:scale-105 hover:shadow-lg">
+    Get Started
+    <ArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" size={20} />
+  </Button>
+</Link>
+
                 </div>
                 
                 <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <Card className="shadow-xl border-0">
-                    <CardHeader>
-                      <CardTitle className="text-xl text-primary-900">
-                        What's Included:
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-3">
-                        {service.services.map((item, itemIndex) => (
-                          <li key={itemIndex} className="flex items-start">
-                            <span className="text-secondary-600 mr-3 mt-1">•</span>
-                            <span className="text-gray-700">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
+                <Card className="shadow-xl border border-transparent hover:border-primary-300 transition-transform duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
+  <CardHeader>
+    <CardTitle className="text-xl text-primary-900">
+      What's Included:
+    </CardTitle>
+  </CardHeader>
+  <CardContent>
+    <ul className="space-y-3">
+      {service.services.map((item, itemIndex) => (
+        <li key={itemIndex} className="flex items-start">
+          <span className="text-secondary-600 mr-3 mt-1">•</span>
+          <span className="text-gray-700">{item}</span>
+        </li>
+      ))}
+    </ul>
+  </CardContent>
+</Card>
+
+
                 </div>
               </div>
             ))}
@@ -196,7 +213,6 @@ const Services = () => {
       </section>
 
       <Footer />
-      <ChatBot />
     </div>
   );
 };
