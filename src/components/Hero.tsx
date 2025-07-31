@@ -42,11 +42,14 @@ const Hero = () => {
               </Link>
               <Link to="/services">
               <Button 
-  size="lg" 
-  variant="outline" 
-  className="text-primary-900 border-slate-400 hover:bg-white/10 hover:border-white text-lg px-8 py-4 rounded-xl transition-all duration-300"
+  size="lg"
+  className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-2xl transform transition-all duration-300 ease-in-out hover:scale-105 group"
 >
   Explore Services
+  <ArrowRight 
+    className="ml-2 transition-transform duration-300 ease-in-out group-hover:translate-x-1" 
+    size={20} 
+  />
 </Button>
 
 
