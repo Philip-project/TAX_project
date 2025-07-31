@@ -103,14 +103,14 @@ const About = () => {
                   We believe that every business and individual deserves access to strategic 
                   financial insights that drive real results.
                 </p>
-                <p>
+                 <p className="text-lg">
                   Our team includes seasoned financial professionals with over a decade of 
                   experience in tax filing, tax planning, financial forecasting, cash flow 
                   and strategic business analysis across diverse industries. We've helped 
                   hundreds of clients navigate complex financial challenges and achieve 
                   their goals.
                 </p>
-                <p>
+                 <p className="text-lg">
                   What sets us apart is our commitment to building lasting relationships. 
                   We take the time to understand your unique situation, challenges, and 
                   aspirations. This personalized approach allows us to deliver tailored 
