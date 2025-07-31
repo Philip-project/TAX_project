@@ -41,11 +41,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">Services</h4>
             <ul className="space-y-2 text-gray-300">
-              <li><Link to="/services" className="hover:text-white transition-colors">Tax Services</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Accounting</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Business Consulting</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">CFO Services</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Payroll Support</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Tax Services</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Accounting</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Business Consulting</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>CFO Services</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Payroll Support</Link></li>
             </ul>
           </div>
 
@@ -53,10 +53,10 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-300">
-              <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
-              <li><Link to="/booking" className="hover:text-white transition-colors">Book Appointment</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link to="/" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Home</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>About</Link></li>
+              <li><Link to="/booking" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Book Appointment</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Contact</Link></li>
               <li><a href="#" className="hover:text-white transition-colors">Newsletter</a></li>
             </ul>
           </div>
