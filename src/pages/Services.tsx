@@ -1,5 +1,6 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
@@ -9,6 +10,20 @@ import { Link } from 'react-router-dom';
 import { FileText, Calculator, Briefcase, Users, CheckCircle, ArrowRight } from 'lucide-react';
 
 const Services = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // If there's a hash in the URL, scroll to that section
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If no hash, scroll to top of the page
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
   const detailedServices = [
     {
       icon: FileText,
@@ -117,7 +132,7 @@ const Services = () => {
           <div className="space-y-20">
             {detailedServices.map((service, index) => (
               <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                <div id={service.title.toLowerCase().includes('cfo') ? 'external-cfo' : service.title.toLowerCase().replace('services', '').trim().replace(/\s+/g, '-')} className={`${index % 2 === 1 ? 'lg:order-2' : ''} scroll-mt-24`}>
                   <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                     <service.icon className="text-primary-900" size={32} />
                   </div>
