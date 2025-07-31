@@ -83,7 +83,7 @@ const Services = () => {
         'Investor Relations Support',
         'Risk Management',
         'Capital Structure Planning',
-        'M&A Support',
+        'Software Implementation',
         'Financial Controls Implementation',
         'Executive Reporting'
       ],
