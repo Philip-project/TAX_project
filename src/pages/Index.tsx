@@ -8,7 +8,6 @@ import Testimonials from '@/components/Testimonials';
 import ContactForm from '@/components/ContactForm';
 import Newsletter from '@/components/Newsletter';
 import Footer from '@/components/Footer';
-import ChatBot from '@/components/ChatBot';
 
 const Index = () => {
   return (
@@ -21,7 +20,6 @@ const Index = () => {
       <Newsletter />
       <ContactForm />
       <Footer />
-      <ChatBot />
     </div>
   );
 };
