@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import ChatBot from '@/components/ChatBot';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -214,7 +213,6 @@ const Services = () => {
       </section>
 
       <Footer />
-      <ChatBot />
     </div>
   );
 };
