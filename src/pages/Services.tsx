@@ -139,31 +139,34 @@ const Services = () => {
                   </div>
 
                   <Link to="/booking">
-                    <Button className="bg-primary-900 hover:bg-primary-800 text-white">
-                      Get Started
-                      <ArrowRight className="ml-2" size={20} />
-                    </Button>
-                  </Link>
+  <Button className="bg-primary-900 text-white transition-all duration-300 transform hover:bg-primary-800 hover:scale-105 hover:shadow-lg">
+    Get Started
+    <ArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" size={20} />
+  </Button>
+</Link>
+
                 </div>
                 
                 <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <Card className="shadow-xl border-0">
-                    <CardHeader>
-                      <CardTitle className="text-xl text-primary-900">
-                        What's Included:
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-3">
-                        {service.services.map((item, itemIndex) => (
-                          <li key={itemIndex} className="flex items-start">
-                            <span className="text-secondary-600 mr-3 mt-1">•</span>
-                            <span className="text-gray-700">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
+                <Card className="shadow-xl border border-transparent hover:border-primary-300 transition-transform duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
+  <CardHeader>
+    <CardTitle className="text-xl text-primary-900">
+      What's Included:
+    </CardTitle>
+  </CardHeader>
+  <CardContent>
+    <ul className="space-y-3">
+      {service.services.map((item, itemIndex) => (
+        <li key={itemIndex} className="flex items-start">
+          <span className="text-secondary-600 mr-3 mt-1">•</span>
+          <span className="text-gray-700">{item}</span>
+        </li>
+      ))}
+    </ul>
+  </CardContent>
+</Card>
+
+
                 </div>
               </div>
             ))}
