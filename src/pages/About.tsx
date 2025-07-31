@@ -120,7 +120,7 @@ const About = () => {
             </div>
             <div>
               <img
-                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=400&fit=crop"
+                src="/lovable-uploads/img1.svg"
                 alt="Professional team meeting"
                 className="rounded-lg shadow-xl"
               />
