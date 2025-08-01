@@ -307,11 +307,11 @@ const Booking = () => {
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
                       <Phone className="text-secondary-600" size={20} />
-                      <span className="text-gray-700">(816) 555-0123</span>
+                      <span className="text-gray-700">(475) 529-6839</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Mail className="text-secondary-600" size={20} />
-                      <span className="text-gray-700">info@protaxbykc.com</span>
+                      <span className="text-gray-700">Protaxbykc@gmail.com</span>
                     </div>
                     <div className="flex items-start space-x-3">
                       <MapPin className="text-secondary-600 mt-1" size={20} />
