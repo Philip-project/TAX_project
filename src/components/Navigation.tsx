@@ -24,12 +24,12 @@ const Navigation = () => {
             <Link to="/" className="flex items-center space-x-3">
               <img 
                 src="/lovable-uploads/bce15a11-fe78-49dc-8d44-1339cd299a99.png" 
-                alt="ProTax By KC & Associates Logo" 
+                alt="ProTax by KC Associates Logo" 
                 className="h-12 w-auto"
               />
               <div>
-                <h1 className="font-heading font-bold text-slate-900 text-xl">ProTax By KC</h1>
-                <p className="text-sm text-slate-600">& Associates</p>
+                <h1 className="font-heading font-bold text-slate-900 text-xl">ProTax by KC</h1>
+                <p className="text-sm text-slate-600">Associates</p>
               </div>
             </Link>
           </div>

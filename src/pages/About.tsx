@@ -2,7 +2,6 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import ChatBot from '@/components/ChatBot';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -66,7 +65,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="font-heading font-bold text-5xl mb-6">About ProTax By KC & Associates</h1>
+              <h1 className="font-heading font-bold text-5xl mb-6">About ProTax by KC Associates</h1>
               <p className="text-xl text-gray-200 leading-relaxed">
                 Your trusted partner in financial success. We combine expertise, 
                 strategy, and personal attention to deliver exceptional results for 
@@ -99,19 +98,19 @@ const About = () => {
               </h2>
               <div className="space-y-6 text-gray-700 leading-relaxed">
                 <p className="text-lg">
-                  ProTax By KC and Associates was founded with a simple mission: to provide 
+                  ProTax by KC Associates was founded with a simple mission: to provide 
                   expert financial guidance that goes beyond traditional accounting services. 
                   We believe that every business and individual deserves access to strategic 
                   financial insights that drive real results.
                 </p>
-                <p>
+                 <p className="text-lg">
                   Our team includes seasoned financial professionals with over a decade of 
                   experience in tax filing, tax planning, financial forecasting, cash flow 
                   and strategic business analysis across diverse industries. We've helped 
                   hundreds of clients navigate complex financial challenges and achieve 
                   their goals.
                 </p>
-                <p>
+                 <p className="text-lg">
                   What sets us apart is our commitment to building lasting relationships. 
                   We take the time to understand your unique situation, challenges, and 
                   aspirations. This personalized approach allows us to deliver tailored 
@@ -121,7 +120,7 @@ const About = () => {
             </div>
             <div>
               <img
-                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=400&fit=crop"
+                src="/lovable-uploads/img1.svg"
                 alt="Professional team meeting"
                 className="rounded-lg shadow-xl"
               />
@@ -163,7 +162,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">
-              Why Choose ProTax By KC?
+              Why Choose ProTax by KC?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We go beyond compliance to provide the strategic insights and clarity 
@@ -227,7 +226,6 @@ const About = () => {
       </section>
 
       <Footer />
-      <ChatBot />
     </div>
   );
 };

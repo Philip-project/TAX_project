@@ -2,7 +2,6 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import ChatBot from '@/components/ChatBot';
 import ContactForm from '@/components/ContactForm';
 import Newsletter from '@/components/Newsletter';
 import { Card, CardContent } from '@/components/ui/card';
@@ -223,7 +222,6 @@ const Contact = () => {
       <ContactForm />
       <Newsletter />
       <Footer />
-      <ChatBot />
     </div>
   );
 };
