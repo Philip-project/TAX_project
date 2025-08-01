@@ -11,10 +11,10 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1">
             <div className="flex items-center space-x-3 mb-4">
-              <img 
+            <img 
                 src="/lovable-uploads/bce15a11-fe78-49dc-8d44-1339cd299a99.png" 
                 alt="ProTax by KC Associates Logo" 
-                className="h-8 w-auto filter brightness-0 invert"
+                className="h-8 w-auto"
               />
               <div>
                 <h3 className="font-heading font-bold text-xl">ProTax by KC</h3>
