@@ -45,7 +45,7 @@ const Footer = () => {
               <li><Link to="/services#accounting" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Accounting Services</Link></li>
               <li><Link to="/services#business-consulting" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Business Consulting</Link></li>
               <li><Link to="/services#external-cfo" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>CFO Services</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Payroll Support</Link></li>
+              <li><Link to="/services#administrative-services" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Administrative Services</Link></li>
             </ul>
           </div>
 

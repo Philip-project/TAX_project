@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
@@ -143,61 +142,75 @@ const Services = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-20">
-            {detailedServices.map((service, index) => (
-              <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
-                <div id={service.title.toLowerCase().includes('cfo') ? 'external-cfo' : service.title.toLowerCase().replace('services', '').trim().replace(/\s+/g, '-')} className={`${index % 2 === 1 ? 'lg:order-2' : ''} scroll-mt-24`}>
-                  <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                    <service.icon className="text-primary-900" size={32} />
+            {detailedServices.map((service, index) => {
+              // Generate consistent ID for each service section
+              let serviceId = service.title.toLowerCase().replace(/\s+/g, '-');
+              
+              // Special cases to match footer links exactly
+              if (service.title.toLowerCase().includes('cfo')) {
+                serviceId = 'external-cfo';
+              } else if (service.title.toLowerCase() === 'accounting services') {
+                serviceId = 'accounting';
+              } else if (service.title.toLowerCase() === 'business consulting') {
+                serviceId = 'business-consulting';
+              } else if (service.title.toLowerCase() === 'administrative services') {
+                serviceId = 'administrative-services';
+              }
+              
+              return (
+                <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
+                  <div id={serviceId} className={`${index % 2 === 1 ? 'lg:order-2' : ''} scroll-mt-24`}>
+                    <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                      <service.icon className="text-primary-900" size={32} />
+                    </div>
+                    <h2 className="font-heading font-bold text-3xl text-primary-900 mb-4">
+                      {service.title}
+                    </h2>
+                    <p className="text-lg text-gray-600 mb-6">{service.description}</p>
+                    
+                    <div className="mb-8">
+                      <h3 className="font-semibold text-xl text-primary-900 mb-4">Key Benefits:</h3>
+                      <ul className="space-y-2">
+                        {service.benefits.map((benefit, benefitIndex) => (
+                          <li key={benefitIndex} className="flex items-center">
+                            <CheckCircle className="text-secondary-600 mr-3" size={20} />
+                            <span className="text-gray-700">{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <Link to="/booking">
+                      <Button className="bg-primary-900 text-white transition-all duration-300 transform hover:bg-primary-800 hover:scale-105 hover:shadow-lg">
+                        Get Started
+                        <ArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" size={20} />
+                      </Button>
+                    </Link>
+
                   </div>
-                  <h2 className="font-heading font-bold text-3xl text-primary-900 mb-4">
-                    {service.title}
-                  </h2>
-                  <p className="text-lg text-gray-600 mb-6">{service.description}</p>
                   
-                  <div className="mb-8">
-                    <h3 className="font-semibold text-xl text-primary-900 mb-4">Key Benefits:</h3>
-                    <ul className="space-y-2">
-                      {service.benefits.map((benefit, benefitIndex) => (
-                        <li key={benefitIndex} className="flex items-center">
-                          <CheckCircle className="text-secondary-600 mr-3" size={20} />
-                          <span className="text-gray-700">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                    <Card className="shadow-xl border border-transparent hover:border-primary-300 transition-transform duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
+                      <CardHeader>
+                        <CardTitle className="text-xl text-primary-900">
+                          What's Included:
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-3">
+                          {service.services.map((item, itemIndex) => (
+                            <li key={itemIndex} className="flex items-start">
+                              <span className="text-secondary-600 mr-3 mt-1">•</span>
+                              <span className="text-gray-700">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
                   </div>
-
-                  <Link to="/booking">
-  <Button className="bg-primary-900 text-white transition-all duration-300 transform hover:bg-primary-800 hover:scale-105 hover:shadow-lg">
-    Get Started
-    <ArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" size={20} />
-  </Button>
-</Link>
-
                 </div>
-                
-                <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                <Card className="shadow-xl border border-transparent hover:border-primary-300 transition-transform duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
-  <CardHeader>
-    <CardTitle className="text-xl text-primary-900">
-      What's Included:
-    </CardTitle>
-  </CardHeader>
-  <CardContent>
-    <ul className="space-y-3">
-      {service.services.map((item, itemIndex) => (
-        <li key={itemIndex} className="flex items-start">
-          <span className="text-secondary-600 mr-3 mt-1">•</span>
-          <span className="text-gray-700">{item}</span>
-        </li>
-      ))}
-    </ul>
-  </CardContent>
-</Card>
-
-
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
