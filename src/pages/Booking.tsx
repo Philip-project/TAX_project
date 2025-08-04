@@ -38,13 +38,16 @@ const Booking = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Book Appointment Button - Centered at Top */}
           <div className="flex justify-center mb-12">
-            <Button
-              onClick={handleSubmit}
-              className="bg-primary-900 hover:bg-primary-800 text-white text-lg py-5 px-14"
-              size="lg"
-            >
-              Book Appointment
-            </Button>
+           <Button
+  onClick={() => window.open(
+    "https://calendly.com/bandimahendra597/new-meeting?month=2025-08&date=2025-08-23",
+    "_blank"
+  )}
+  className="bg-primary-900 hover:bg-primary-800 text-white text-lg py-5 px-14"
+  size="lg"
+>
+  Book Appointment
+</Button>
           </div>
  
           {/* Three Cards Below - Compact version */}
