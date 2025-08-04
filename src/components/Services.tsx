@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { FileText, Calculator, Briefcase, Users } from 'lucide-react';
+import { FileText, Calculator, Briefcase, Users, Settings } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -60,6 +60,15 @@ const Services = () => {
         'Software Implementation',
         'Financial Controls Implementation',
         'Executive Reporting'
+      ]
+    },
+    {
+      icon: Settings,
+      title: 'Administrative Services',
+      description: 'Part-time CFO expertise for growing businesses',
+      color: 'from-indigo-500 to-indigo-600',
+      features: [
+        'P&L Service'
       ]
     }
   ];
