@@ -40,7 +40,7 @@ const Booking = () => {
           <div className="flex justify-center mb-12">
             <Button
               onClick={handleSubmit}
-              className="bg-primary-900 hover:bg-primary-800 text-white text-lg py-5 px-14 text-xl"
+              className="bg-primary-900 hover:bg-primary-800 text-white text-lg py-5 px-14"
               size="lg"
             >
               Book Appointment
