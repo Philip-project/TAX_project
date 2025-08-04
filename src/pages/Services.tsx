@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { FileText, Calculator, Briefcase, Users, CheckCircle, ArrowRight } from 'lucide-react';
+import { FileText, Calculator, Briefcase, Users, CheckCircle, ArrowRight, Settings } from 'lucide-react';
 
 const Services = () => {
   const location = useLocation();
@@ -100,6 +100,20 @@ const Services = () => {
         'Software Implementation',
         'Financial Controls Implementation',
         'Executive Reporting'
+      ],
+      benefits: [
+        'C-level financial expertise',
+        'Cost-effective solution',
+        'Strategic financial leadership',
+        'Enhanced investor confidence'
+      ]
+    },
+    {
+      icon: Settings,
+      title: 'Administrative Services',
+      description: 'Part-time CFO expertise without the full-time cost, perfect for growing businesses.',
+      services: [
+        'P&L Service'
       ],
       benefits: [
         'C-level financial expertise',
