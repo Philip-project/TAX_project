@@ -57,7 +57,7 @@ const Footer = () => {
               <li><Link to="/about" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>About</Link></li>
               <li><Link to="/booking" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Book Appointment</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Contact</Link></li>
-              <li><a href="#" className="hover:text-white transition-colors">Newsletter</a></li>
+              {/* <li><a href="#" className="hover:text-white transition-colors">Newsletter</a></li> */}
             </ul>
           </div>
 
