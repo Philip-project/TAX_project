@@ -37,7 +37,7 @@ const About = () => {
             </h2>
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p className="text-lg text-justify">
-                ProTax by KC & Associates is a trusted CPA firm offering expert tax filing, 
+                ProTax by KC & Associates is a trusted CPA offering expert tax filing, 
                 tax strategy, accounting and external CFO solution services for entrepreneurial 
                 businesses and individuals.
               </p>
