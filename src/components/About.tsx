@@ -33,11 +33,11 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">
-              About ProTax by KC Associates
+              About ProTax by KC & Associates
             </h2>
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p className="text-lg text-justify">
-                ProTax by KC Associates is a trusted CPA firm offering expert tax filing, 
+                ProTax by KC & Associates is a trusted CPA firm offering expert tax filing, 
                 tax strategy, accounting and external CFO solution services for entrepreneurial 
                 businesses and individuals.
               </p>
@@ -54,7 +54,7 @@ const About = () => {
                 sustainable growth.
               </p>
               <p className="font-semibold text-primary-900">
-                At ProTax by KC Associates, we go beyond compliance—we provide the strategic 
+                At ProTax by KC & Associates, we go beyond compliance—we provide the strategic 
                 insights and clarity businesses need to thrive in today's competitive landscape.
               </p>
             </div>
