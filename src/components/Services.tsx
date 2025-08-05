@@ -49,7 +49,7 @@ const Services = () => {
       icon: Users,
       title: 'External CFO Services',
       description: 'Part-time CFO expertise for growing businesses',
-      color: 'from-indigo-500 to-indigo-600',
+      color: 'from-rose-500 to-rose-600',
       features: [
         'Financial Strategy Development',
         'Board Meeting Preparation',
@@ -62,7 +62,7 @@ const Services = () => {
       icon: Settings,
       title: 'Administrative Services',
       description: 'Part-time CFO expertise for growing businesses',
-      color: 'from-indigo-500 to-indigo-600',
+      color: 'from-cyan-500 to-cyan-600',
       features: [
         'P&L Service'
       ]
@@ -90,14 +90,14 @@ const Services = () => {
           {services.map((service, index) => (
             <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white hover:-translate-y-2 flex flex-col h-full">
               <div className="flex-1">
-                <CardHeader className="text-center pb-6">
+                <CardHeader className="pb-6">
                   <div className={`w-20 h-20 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <service.icon className="text-white" size={32} />
                   </div>
-                  <CardTitle className="font-heading text-2xl text-slate-900 mb-3">
+                  <CardTitle className="font-heading text-2xl text-slate-900 mb-3 text-center">
                     {service.title}
                   </CardTitle>
-                  <p className="text-slate-600 text-lg">{service.description}</p>
+                  <p className="text-slate-600 text-lg text-left">{service.description}</p>
                 </CardHeader>
                 <CardContent className="pt-0">
                   <ul className="space-y-3 mb-6">
