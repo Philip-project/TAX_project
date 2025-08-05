@@ -1,9 +1,7 @@
-
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
-import Newsletter from '@/components/Newsletter';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Phone, Mail, Clock, MessageCircle, Users } from 'lucide-react';
 
@@ -220,7 +218,6 @@ const Contact = () => {
       </section>
 
       <ContactForm />
-      <Newsletter />
       <Footer />
     </div>
   );
