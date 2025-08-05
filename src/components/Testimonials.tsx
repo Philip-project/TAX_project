@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star, Quote } from 'lucide-react';
@@ -10,7 +9,7 @@ const Testimonials = () => {
       company: 'Johnson Consulting LLC',
       rating: 5,
       text: 'ProTax by KC & Associates has been instrumental in streamlining our financial processes. Their strategic insights have helped us grow our business by 40% this year.',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face'
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face'
     },
     {
       name: 'Michael Chen',
