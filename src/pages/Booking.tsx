@@ -52,7 +52,7 @@ const Booking = () => {
             {/* What to Expect */}
             <Card className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 border-2 border-transparent">
               <CardHeader className="pb-3">
-                <CardTitle className="text-xl text-primary-900 flex items-center">
+                <CardTitle className="text-xl text-primary-900 flex items-center justify-center">
                   <Calendar className="text-secondary-600 mr-2" size={20} />
                   What to Expect
                 </CardTitle>
@@ -76,7 +76,7 @@ const Booking = () => {
             {/* Contact Information */}
             <Card className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 border-2 border-transparent">
               <CardHeader className="pb-3">
-                <CardTitle className="text-xl text-primary-900 flex items-center">
+                <CardTitle className="text-xl text-primary-900 flex items-center justify-center">
                   <Phone className="text-secondary-600 mr-2" size={20} />
                   Need Immediate Help?
                 </CardTitle>
@@ -100,7 +100,7 @@ const Booking = () => {
             {/* Business Hours */}
             <Card className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 border-2 border-transparent">
               <CardHeader className="pb-3">
-                <CardTitle className="text-xl text-primary-900 flex items-center">
+                <CardTitle className="text-xl text-primary-900 flex items-center justify-center">
                   <Clock className="text-secondary-600 mr-2" size={20} />
                   Business Hours
                 </CardTitle>
