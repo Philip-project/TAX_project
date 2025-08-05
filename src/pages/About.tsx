@@ -65,7 +65,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="font-heading font-bold text-5xl mb-6">About ProTax by KC Associates</h1>
+              <h1 className="font-heading font-bold text-5xl mb-6">About ProTax by KC & Associates</h1>
               <p className="text-xl text-gray-200 leading-relaxed">
                 Your trusted partner in financial success. We combine expertise, 
                 strategy, and personal attention to deliver exceptional results for 
@@ -97,20 +97,20 @@ const About = () => {
                 Our Story
               </h2>
               <div className="space-y-6 text-gray-700 leading-relaxed">
-                <p className="text-lg">
-                  ProTax by KC Associates was founded with a simple mission: to provide 
+                <p className="text-lg text-justify">
+                  ProTax by KC & Associates was founded with a simple mission: to provide 
                   expert financial guidance that goes beyond traditional accounting services. 
                   We believe that every business and individual deserves access to strategic 
                   financial insights that drive real results.
                 </p>
-                 <p className="text-lg">
+                 <p className="text-lg text-justify">
                   Our team includes seasoned financial professionals with over a decade of 
                   experience in tax filing, tax planning, financial forecasting, cash flow 
                   and strategic business analysis across diverse industries. We've helped 
                   hundreds of clients navigate complex financial challenges and achieve 
                   their goals.
                 </p>
-                 <p className="text-lg">
+                 <p className="text-lg text-justify">
                   What sets us apart is our commitment to building lasting relationships. 
                   We take the time to understand your unique situation, challenges, and 
                   aspirations. This personalized approach allows us to deliver tailored 

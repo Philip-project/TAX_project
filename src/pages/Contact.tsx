@@ -12,13 +12,13 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      content: '(816) 555-0123',
+      content: '(475) 529-6839',
       description: 'Call us during business hours'
     },
     {
       icon: Mail,
       title: 'Email',
-      content: 'info@protaxbykc.com',
+      content: 'protaxbykc@gmail.com',
       description: 'We respond within 24 hours'
     },
     {

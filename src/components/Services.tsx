@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { FileText, Calculator, Briefcase, Users, TrendingUp, Shield } from 'lucide-react';
+import { FileText, Calculator, Briefcase, Users, Settings } from 'lucide-react';
 
 const Services = () => {
   const services = [
@@ -46,27 +45,31 @@ const Services = () => {
         'Budget optimization',
         'Financial process improvement'
       ]
-    }
-  ];
-
-  const additionalServices = [
+    },
     {
       icon: Users,
       title: 'External CFO Services',
       description: 'Part-time CFO expertise for growing businesses',
-      color: 'from-indigo-500 to-indigo-600'
+      color: 'from-indigo-500 to-indigo-600',
+      features: [
+        'Financial Strategy Development',
+        'Board Meeting Preparation',
+        'Investor Relations Support',
+        'Risk Management',
+        'Capital Structure Planning',
+        'Software Implementation',
+        'Financial Controls Implementation',
+        'Executive Reporting'
+      ]
     },
     {
-      icon: TrendingUp,
-      title: 'Financial Planning',
-      description: 'Data-driven decisions and strategic insights',
-      color: 'from-emerald-500 to-emerald-600'
-    },
-    {
-      icon: Shield,
-      title: 'Compliance Support',
-      description: 'Stay compliant with regulations and requirements',
-      color: 'from-orange-500 to-orange-600'
+      icon: Settings,
+      title: 'Administrative Services',
+      description: 'Part-time CFO expertise for growing businesses',
+      color: 'from-indigo-500 to-indigo-600',
+      features: [
+        'P&L Service'
+      ]
     }
   ];
 
@@ -108,23 +111,6 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Additional Services */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {additionalServices.map((service, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 bg-white border-0 shadow-md hover:-translate-y-1">
-              <CardContent className="p-8 text-center">
-                <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon className="text-white" size={24} />
-                </div>
-                <h3 className="font-semibold text-xl text-slate-900 mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-slate-600">{service.description}</p>
               </CardContent>
             </Card>
           ))}
