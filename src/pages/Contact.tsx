@@ -222,49 +222,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xl text-gray-600">
-              Quick answers to common questions about our services
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <Card key={index} className="shadow-lg border-0">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-lg text-primary-900 mb-3">
-                    {faq.question}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-gray-600 mb-4">
-              Don't see your question answered?
-            </p>
-            <Card className="inline-block bg-primary-50 border-primary-200">
-              <CardContent className="p-4">
-                <div className="flex items-center space-x-3">
-                  <Users className="text-primary-900" size={24} />
-                  <span className="text-primary-900 font-medium">
-                    Contact us directly for personalized assistance
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Moved Contact Form Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -389,6 +346,49 @@ const Contact = () => {
               </form>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* FAQ Section - Moved after Contact Form */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-600">
+              Quick answers to common questions about our services
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="shadow-lg border-0">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-lg text-primary-900 mb-3">
+                    {faq.question}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-gray-600 mb-4">
+              Don't see your question answered?
+            </p>
+            <Card className="inline-block bg-primary-50 border-primary-200">
+              <CardContent className="p-4">
+                <div className="flex items-center space-x-3">
+                  <Users className="text-primary-900" size={24} />
+                  <span className="text-primary-900 font-medium">
+                    Contact us directly for personalized assistance
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
