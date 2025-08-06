@@ -18,7 +18,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      content: 'Protaxbykc@gmail.com',
+      content: 'protaxbykc@gmail.com',
       description: 'We respond within 24 hours'
     },
     {
