@@ -24,6 +24,7 @@ const Services = () => {
   }, [location]);
   const detailedServices = [
     {
+      id: 'tax',
       icon: FileText,
       title: 'Tax Services',
       description: 'Comprehensive tax solutions designed to minimize your liability and maximize your refunds.',
@@ -155,6 +156,8 @@ const Services = () => {
                 serviceId = 'business-consulting';
               } else if (service.title.toLowerCase() === 'administrative services') {
                 serviceId = 'administrative-services';
+              } else if (service.id) {
+                serviceId = service.id;
               }
               
               return (
