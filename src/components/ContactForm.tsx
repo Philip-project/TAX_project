@@ -25,7 +25,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       ...formData
     });
 
-    const response = await fetch('https://script.google.com/macros/s/AKfycbziR9gk-X2ZMAFOEFTxNZOOZZ8Ld2N6vn3eVDagHaGFwbTMXmDpYVdQmGBLV5tHZ0N3UQ/exec', {
+    const response = await fetch( 'https://script.google.com/macros/s/AKfycbz6CggoQmNdhL-z9HeHW2i8r1YOf6nbVscQIwFyAlbCR-Dzm69yOpPelpvzttkIm5gBXg/exec', {
       method: 'POST',
       headers: {
         'Content-Type': 'text/plain;charset=utf-8'  // ✅ No preflight triggered!
