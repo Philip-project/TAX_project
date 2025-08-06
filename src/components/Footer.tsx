@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Facebook, Linkedin, Twitter } from 'lucide-react';
@@ -41,7 +40,19 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg mb-4">Services</h4>
             <ul className="space-y-2 text-gray-300">
-              <li><Link to="/services#tax" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Tax Services</Link></li>
+              <li>
+                <Link 
+                  to="/services#tax" 
+                  className="hover:text-white transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = '/services#tax';
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  Tax Services
+                </Link>
+              </li>
               <li><Link to="/services#accounting" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Accounting Services</Link></li>
               <li><Link to="/services#business-consulting" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>Business Consulting</Link></li>
               <li><Link to="/services#external-cfo" className="hover:text-white transition-colors" onClick={() => window.scrollTo(0, 0)}>CFO Services</Link></li>
@@ -82,7 +93,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-300">
-          <p>&copy; 2024 ProTax by KC & Associates. All rights reserved.</p>
+          <p>&copy; 2025 ProTax by KC & Associates. All rights reserved.</p>
         </div>
       </div>
     </footer>
