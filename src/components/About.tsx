@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, Target, Users, Award } from 'lucide-react';
@@ -35,29 +34,24 @@ const About = () => {
             <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">
               About ProTax by KC & Associates
             </h2>
-            <div className="space-y-6 text-gray-700 leading-relaxed">
-              <p className="text-lg text-justify">
-                ProTax by KC & Associates is a trusted CPA offering expert tax filing, 
-                tax strategy, accounting and external CFO solution services for entrepreneurial 
-                businesses and individuals.
-              </p>
-              <p className="text-lg text-justify">
-                Our team includes seasoned financial professionals with over a decade of 
-                experience in tax filing, tax planning, financial forecasting, cash flow 
-                and strategic business analysis across diverse industries.
-              </p>
-              <p className="text-lg text-justify">
-                We specialize in helping businesses optimize budgets, improve financial 
-                reporting, and make data-driven decisions with confidence. By streamlining 
-                financial processes, enhancing cross-department collaboration, and implementing 
-                financial tools, we empower organizations to maximize efficiency and achieve 
-                sustainable growth.
-              </p>
-              <p className="font-semibold text-primary-900">
-                At ProTax by KC & Associates, we go beyond compliance—we provide the strategic 
-                insights and clarity businesses need to thrive in today's competitive landscape.
-              </p>
-            </div>
+            <div className="space-y-6 text-gray-700 leading-relaxed max-w-3xl mx-auto px-4 text-justify">
+  <p className="text-lg">
+    ProTax by KC & Associates is a trusted CPA offering expert tax filing, 
+    tax strategy, accounting, and external CFO solution services for entrepreneurial 
+    businesses and individuals.
+  </p>
+  <p className="text-lg">
+    Our team comprises seasoned financial experts with over a decade of experience in tax filing, tax planning, financial forecasting, cash flow management, and strategic business analysis across a wide range of industries.
+  </p>
+  <p className="text-lg">
+    We help businesses optimize budgets, enhance financial reporting, and make confident, data-driven decisions. By streamlining financial operations, fostering cross-department collaboration, and integrating powerful financial tools, we enable organizations to boost efficiency and drive sustainable growth.
+  </p>
+  <p className="font-semibold text-primary-900">
+    At ProTax by KC & Associates, we go beyond compliance—we provide the strategic 
+    insights and clarity businesses need to thrive in today's competitive landscape.
+  </p>
+</div>
+
           </div>
           
           <div className="grid grid-cols-2 gap-6">

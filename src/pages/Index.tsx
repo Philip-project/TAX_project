@@ -18,7 +18,7 @@ const Index = () => {
       <About />
       <Testimonials />
       <Newsletter />
-      <ContactForm />
+      {/* <ContactForm /> */}
       <Footer />
     </div>
   );
