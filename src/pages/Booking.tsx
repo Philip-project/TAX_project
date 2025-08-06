@@ -6,10 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { Calendar, Clock, MapPin, Phone, Mail } from 'lucide-react';
- 
+
 const Booking = () => {
   const { toast } = useToast();
- 
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -17,11 +17,11 @@ const Booking = () => {
       description: "We'll contact you within 24 hours to confirm your consultation.",
     });
   };
- 
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-     
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-900 to-secondary-800 text-white py-20">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -32,27 +32,30 @@ const Booking = () => {
           </p>
         </div>
       </section>
- 
+
       {/* Main Content */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Book Appointment Button - Centered at Top */}
           <div className="flex justify-center mb-12">
-            <Button
-              onClick={handleSubmit}
-              className="bg-primary-900 hover:bg-primary-800 text-white text-lg py-5 px-14 text-xl"
-              size="lg"
-            >
-              Book Appointment
-            </Button>
+           <Button
+  onClick={() => window.open(
+    "https://calendly.com/bandimahendra597/new-meeting?month=2025-08&date=2025-08-23",
+    "_blank"
+  )}
+  className="bg-primary-900 hover:bg-primary-800 text-white text-lg py-5 px-14"
+  size="lg"
+>
+  Book Appointment
+</Button>
           </div>
- 
+
           {/* Three Cards Below - Compact version */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* What to Expect */}
-            <Card className="shadow-lg">
+            <Card className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 border-2 border-transparent">
               <CardHeader className="pb-3">
-                <CardTitle className="text-xl text-primary-900 flex items-center">
+                <CardTitle className="text-xl text-primary-900 flex items-center justify-center">
                   <Calendar className="text-secondary-600 mr-2" size={20} />
                   What to Expect
                 </CardTitle>
@@ -72,11 +75,11 @@ const Booking = () => {
                 </div>
               </CardContent>
             </Card>
- 
+
             {/* Contact Information */}
-            <Card className="shadow-lg bg-primary-50">
+            <Card className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 border-2 border-transparent">
               <CardHeader className="pb-3">
-                <CardTitle className="text-xl text-primary-900 flex items-center">
+                <CardTitle className="text-xl text-primary-900 flex items-center justify-center">
                   <Phone className="text-secondary-600 mr-2" size={20} />
                   Need Immediate Help?
                 </CardTitle>
@@ -96,11 +99,11 @@ const Booking = () => {
                 </div>
               </CardContent>
             </Card>
- 
+
             {/* Business Hours */}
-            <Card className="shadow-lg">
+            <Card className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 border-2 border-transparent">
               <CardHeader className="pb-3">
-                <CardTitle className="text-xl text-primary-900 flex items-center">
+                <CardTitle className="text-xl text-primary-900 flex items-center justify-center">
                   <Clock className="text-secondary-600 mr-2" size={20} />
                   Business Hours
                 </CardTitle>
@@ -125,11 +128,11 @@ const Booking = () => {
           </div>
         </div>
       </section>
- 
+
       <Footer />
       {/* <Chatbot /> */}
     </div>
   );
 };
- 
+
 export default Booking;

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calculator, TrendingUp, Shield } from 'lucide-react';
@@ -95,9 +94,10 @@ const Hero = () => {
                     </div>
                   </div>
                 </div>
-                <Link to="/booking">
-                  <Button className="w-full mt-8 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white rounded-xl">
+                <Link to="/booking" className="w-full">
+                  <Button className="w-full mt-8 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0">
                     Schedule Free Consultation
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
                 </Link>
               </div>

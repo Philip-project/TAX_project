@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star, Quote } from 'lucide-react';
@@ -9,8 +8,8 @@ const Testimonials = () => {
       name: 'Sarah Johnson',
       company: 'Johnson Consulting LLC',
       rating: 5,
-      text: 'ProTax by KC has been instrumental in streamlining our financial processes. Their strategic insights have helped us grow our business by 40% this year.',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face'
+      text: 'ProTax by KC & Associates has been instrumental in streamlining our financial processes. Their strategic insights have helped us grow our business by 40% this year.',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face'
     },
     {
       name: 'Michael Chen',
@@ -23,7 +22,7 @@ const Testimonials = () => {
       name: 'Lisa Rodriguez',
       company: 'Rodriguez Real Estate',
       rating: 5,
-      text: 'The team at ProTax by KC provides exceptional CFO services. Their financial forecasting has been crucial for our expansion plans.',
+      text: 'The team at ProTax by KC & Associates provides exceptional CFO services. Their financial forecasting has been crucial for our expansion plans.',
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
     }
   ];
