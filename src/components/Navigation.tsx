@@ -20,7 +20,7 @@ declare global {
   }
 }
 
-// CSS to hide all Google Translate UI elements
+// CSS to hide all Google Translate UI elements and prevent translation of our selector
 const hideGoogleTranslateCSS = `
   .goog-te-banner-frame,
   .goog-te-menu-frame,
@@ -51,16 +51,25 @@ const hideGoogleTranslateCSS = `
   body {
     top: auto !important;
   }
+  .no-translate, .language-selector * {
+    -webkit-translate: none !important;
+    -moz-translate: none !important;
+    -ms-translate: none !important;
+    -o-translate: none !important;
+    translate: none !important;
+  }
 `;
 
 const LanguageDropdown = ({
   languages,
   changeLanguage,
+  currentLanguage
 }: {
   languages: { code: string; name: string }[];
   changeLanguage: (code: string) => void;
+  currentLanguage: string;
 }) => (
-  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 no-translate">
     <div className="p-2 border-b border-gray-100">
       <h3 className="font-medium">Select Language</h3>
     </div>
@@ -70,9 +79,14 @@ const LanguageDropdown = ({
           <button 
             key={lang.code} 
             onClick={() => changeLanguage(lang.code)} 
-            className="w-full text-left px-4 py-2 hover:bg-blue-50"
+            className={`w-full text-left px-4 py-2 hover:bg-blue-50 flex justify-between items-center ${
+              currentLanguage === lang.code ? 'bg-blue-50 text-blue-600' : ''
+            }`}
           >
             {lang.name}
+            {currentLanguage === lang.code && (
+              <span className="text-blue-500">✓</span>
+            )}
           </button>
         ))
       ) : (
@@ -86,6 +100,7 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLanguages, setShowLanguages] = useState(false);
   const [languages, setLanguages] = useState<Array<{code: string, name: string}>>([]);
+  const [currentLanguage, setCurrentLanguage] = useState('en');
   const location = useLocation();
   const desktopLangRef = useRef<HTMLDivElement>(null);
   const mobileLangRef = useRef<HTMLDivElement>(null);
@@ -179,6 +194,7 @@ const Navigation = () => {
     if (select) {
       select.value = langCode;
       select.dispatchEvent(new Event('change', { bubbles: true }));
+      setCurrentLanguage(langCode);
     }
     setShowLanguages(false);
   };
@@ -205,7 +221,7 @@ const Navigation = () => {
     <nav className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
-          {/* Logo and Branding - Updated with ml-0 to remove left gap */}
+          {/* Logo and Branding */}
           <div className="flex items-center ml-0">
             <Link to="/" className="flex items-center space-x-3">
               <img 
@@ -221,7 +237,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8"> {/* Reduced space-x from 10 to 8 */}
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -243,30 +259,48 @@ const Navigation = () => {
               </Button>
             </Link>
             
-            {/* Language Selector - Updated with mr-0 to remove right gap */}
-            <div className="relative mr-0" ref={desktopLangRef}>
+            {/* Language Selector */}
+            <div className="relative mr-0 no-translate language-selector" ref={desktopLangRef}>
               <button 
                 onClick={() => setShowLanguages(!showLanguages)} 
-                className="p-2 hover:bg-gray-100 rounded-full -mr-1" // Added -mr-1 to pull the icon closer
+                className="flex items-center p-2 hover:bg-gray-100 rounded-full -mr-1"
                 aria-label="Select language"
               >
                 <Globe size={20} />
+                <span className="ml-1 text-sm font-medium">
+                  {languages.find(l => l.code === currentLanguage)?.code.toUpperCase() || 'EN'}
+                </span>
               </button>
-              {showLanguages && <LanguageDropdown languages={languages} changeLanguage={changeLanguage} />}
+              {showLanguages && (
+                <LanguageDropdown 
+                  languages={languages} 
+                  changeLanguage={changeLanguage}
+                  currentLanguage={currentLanguage}
+                />
+              )}
             </div>
           </div>
 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center">
-            <div className="relative mr-1" ref={mobileLangRef}> {/* Added mr-1 to reduce gap */}
+            <div className="relative mr-1 no-translate language-selector" ref={mobileLangRef}>
               <button
                 onClick={() => setShowLanguages(!showLanguages)}
-                className="p-2"
+                className="flex items-center p-2"
                 aria-label="Select language"
               >
                 <Globe size={20} />
+                <span className="ml-1 text-sm font-medium">
+                  {languages.find(l => l.code === currentLanguage)?.code.toUpperCase() || 'EN'}
+                </span>
               </button>
-              {showLanguages && <LanguageDropdown languages={languages} changeLanguage={changeLanguage} />}
+              {showLanguages && (
+                <LanguageDropdown 
+                  languages={languages} 
+                  changeLanguage={changeLanguage}
+                  currentLanguage={currentLanguage}
+                />
+              )}
             </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
