@@ -90,10 +90,10 @@ const About = () => {
 
       {/* Our Story */}
       <section className="py-20 bg-primary-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6 text-center">
+              <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">
                 Our Story
               </h2>
               <div className="space-y-6 text-gray-700 leading-relaxed">
@@ -117,6 +117,13 @@ const About = () => {
                   solutions that truly make a difference.
                 </p>
               </div>
+            </div>
+            <div className='mt-11'>
+              <img
+                src="/lovable-uploads/img3.jpg"
+                alt="Professional team meeting"
+                className="rounded-lg shadow-xl"
+              />
             </div>
           </div>
         </div>
@@ -160,7 +167,7 @@ const About = () => {
       <div className="bg-indigo-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 flex items-center gap-6 group">
         <div className="flex-shrink-0 w-28 h-28 overflow-hidden rounded-full">
           <img
-            src="/lovable-uploads/img3.png"
+            src="/lovable-uploads/img4.jpg"
             alt="Nikki – Booking & Project Management Expert"
             className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
           />
