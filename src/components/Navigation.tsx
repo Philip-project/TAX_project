@@ -253,13 +253,7 @@ const Navigation = () => {
               </Link>
             ))}
 
-            <Link to="/booking">
-              <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
-                Get Started
-              </Button>
-            </Link>
-            
-            {/* Language Selector */}
+{/* Language Selector */}
             <div className="relative mr-0 no-translate language-selector" ref={desktopLangRef}>
               <button 
                 onClick={() => setShowLanguages(!showLanguages)} 
