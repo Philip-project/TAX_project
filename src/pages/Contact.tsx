@@ -90,7 +90,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      content: '(475) 529-6839',
+      content: '+1 (475) 529-6839',
       description: 'Call us during business hours'
     },
     {
