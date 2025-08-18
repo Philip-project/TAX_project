@@ -148,7 +148,7 @@ const About = () => {
         <div>
           <h3 className="text-2xl font-semibold text-primary-900 mb-2">Michael</h3>
           <p className="text-gray-700 mb-4">
-            FP&A professional with over a decade of experience driving financial strategy across startups, growth-stage, and large enterprises in CPG, pharmaceuticals, and market research. Holds a BS in Economics from UConn.
+            FP&A professional with over a decade of experience driving financial strategy across startups, growth-stage, and large enterprises in CPG, pharmaceuticals, and market research. 
           </p>
           <h4 className="font-semibold mb-2">Key Strengths:</h4>
           <div className="flex flex-wrap gap-2 mb-4 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
