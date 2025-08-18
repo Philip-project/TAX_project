@@ -94,7 +94,7 @@ const Services = () => {
       services: [
         'Financial Strategy Development',
         'Board Meeting Preparation',
-        'Investor Relations Support',
+        // 'Investor Relations Support',
         'Risk Management',
         'Capital Structure Planning',
         'Software Implementation',

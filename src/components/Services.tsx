@@ -53,8 +53,9 @@ const Services = () => {
       features: [
         'Financial Strategy Development',
         'Board Meeting Preparation',
-        'Investor Relations Support',
-        'Risk Management'
+        // 'Investor Relations Support',
+        'Risk Management',
+        'Capital Structure Planning'
       ]
     },
     {
