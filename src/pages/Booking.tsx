@@ -40,7 +40,7 @@ const Booking = () => {
           <div className="flex justify-center mb-12">
            <Button
   onClick={() => window.open(
-    "https://calendly.com/bandimahendra597/new-meeting?month=2025-08&date=2025-08-23",
+    "https://calendly.com/protaxbykc/30min",
     "_blank"
   )}
   className="bg-primary-900 hover:bg-primary-800 text-white text-lg py-5 px-14"
