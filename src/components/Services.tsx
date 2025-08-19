@@ -70,6 +70,18 @@ const Services = () => {
     }
   ];
 
+  // Map the service IDs to match section IDs in the Services page
+  const getServiceAnchor = (id: string) => {
+    const serviceMap: {[key: string]: string} = {
+      'tax-services': 'tax',
+      'accounting': 'accounting',
+      'business-consulting': 'business-consulting',
+      'external-cfo': 'external-cfo',
+      'administrative-services': 'administrative-services'
+    };
+    return serviceMap[id] || '';
+  };
+
   return (
     <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,39 +100,45 @@ const Services = () => {
 
         {/* Main Services */}
         <div className="grid lg:grid-cols-3 gap-8 mb-20">
-          {services.map((service, index) => (
-            <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white hover:-translate-y-2 flex flex-col h-full">
-              <div className="flex-1">
-                <CardHeader className="pb-6">
-                  <div className={`w-20 h-20 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon className="text-white" size={32} />
+          {services.map((service, index) => {
+            const anchor = getServiceAnchor(service.id);
+            return (
+              <Link 
+                key={index} 
+                to={`/services#${anchor}`}
+                className="block h-full"
+              >
+                <Card className="group hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-white hover:-translate-y-2 flex flex-col h-full cursor-pointer">
+                  <div className="flex-1">
+                    <CardHeader className="pb-6">
+                      <div className={`w-20 h-20 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                        <service.icon className="text-white" size={32} />
+                      </div>
+                      <CardTitle className="font-heading text-2xl text-slate-900 mb-3 text-center">
+                        {service.title}
+                      </CardTitle>
+                      <p className="text-slate-600 text-lg text-left">{service.description}</p>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                      <ul className="space-y-3 mb-6">
+                        {service.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-start">
+                            <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color} mt-2 mr-3 flex-shrink-0`}></div>
+                            <span className="text-slate-700">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
                   </div>
-                  <CardTitle className="font-heading text-2xl text-slate-900 mb-3 text-center">
-                    {service.title}
-                  </CardTitle>
-                  <p className="text-slate-600 text-lg text-left">{service.description}</p>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <ul className="space-y-3 mb-6">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
-                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color} mt-2 mr-3 flex-shrink-0`}></div>
-                        <span className="text-slate-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </div>
-              <div className="p-6 pt-0 mt-auto">
-                <Link 
-                  to={`/services#${service.id}`}
-                  className={`inline-flex items-center justify-center w-full px-6 py-3 text-sm font-medium rounded-md text-white bg-gradient-to-r ${service.color} hover:opacity-90 transition-opacity`}
-                >
-                  Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
-            </Card>
-          ))}
+                  <div className="p-6 pt-0 mt-auto">
+                    <div className={`inline-flex items-center justify-center w-full px-6 py-3 text-sm font-medium rounded-md text-white bg-gradient-to-r ${service.color} hover:opacity-90 transition-opacity`}>
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </div>
+                  </div>
+                </Card>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
