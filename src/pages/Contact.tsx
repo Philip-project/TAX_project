@@ -28,7 +28,7 @@ const Contact = () => {
        ...formData
      });
  
-     const response = await fetch( 'https://script.google.com/macros/s/AKfycbz6CggoQmNdhL-z9HeHW2i8r1YOf6nbVscQIwFyAlbCR-Dzm69yOpPelpvzttkIm5gBXg/exec', {
+     const response = await fetch( 'https://script.google.com/macros/s/AKfycbyPuSBAtqLAWRFC4YXiLKFt_cCqhhSKj7dxfbU9PdUKsCrd1efSiFmyjInIG39XXxBE5Q/exec', {
        method: 'POST',
        headers: {
          'Content-Type': 'text/plain;charset=utf-8'  // ✅ No preflight triggered!
