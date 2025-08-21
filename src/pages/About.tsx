@@ -177,7 +177,7 @@ const About = () => {
   <div className="flex-1">
     <h3 className="text-2xl font-bold text-indigo-900 mb-2">Michael</h3>
     <p className="text-gray-700 mb-4 leading-relaxed">
-      Michael is an FP&A professional with over a decade of experience driving financial strategy across startups, growth-stage, and large enterprises in CPG, pharmaceuticals, and market research. He holds a BS in Economics from UConn.
+      Michael is an FP&A professional with over a decade of experience driving financial strategy across startups, growth-stage, and large enterprises in CPG, pharmaceuticals, and market research.
     </p>
 
     <h4 className="font-bold text-indigo-800 mb-3 text-lg">Key Strengths:</h4>
