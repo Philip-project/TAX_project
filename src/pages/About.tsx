@@ -259,22 +259,22 @@ const About = () => {
           </p>
         </div>
       </div> */}
-      {/* Nikki's Card - Enhanced */}
+      {/* Nicole's Card - Enhanced */}
 <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 flex flex-col md:flex-row items-start gap-8 group border border-indigo-100 hover:border-indigo-200">
   {/* Image */}
   <div className="flex-shrink-0 w-32 h-32 overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
     <img
       src="/lovable-uploads/img4.jpg"
-      alt="Nikki – Booking & Project Management Expert"
+      alt="Nicole – Booking & Project Management Expert"
       className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
     />
   </div>
 
   {/* Content */}
   <div className="flex-1">
-    <h3 className="text-2xl font-bold text-indigo-900 mb-2">Nikki</h3>
+    <h3 className="text-2xl font-bold text-indigo-900 mb-2">Nicole</h3>
     <p className="text-gray-700 mb-4 leading-relaxed">
-      Nikki is a seasoned booking and project management expert with over 10 years of experience delivering exceptional customer service across diverse industries. Known for her meticulous organization and client-first approach, she ensures seamless coordination from start to finish.
+       Nicole is a seasoned booking and project management expert with over 10 years of experience delivering exceptional customer service across diverse industries. Known for her meticulous organization and client-first approach, she ensures seamless coordination from start to finish.
     </p>
 
     <h4 className="font-bold text-indigo-800 mb-3 text-lg">What She Brings:</h4>
@@ -315,7 +315,7 @@ const About = () => {
     </ul>
 
     <p className="text-gray-700 italic border-t border-indigo-100 pt-4">
-      Whether managing high-profile events or day-to-day operations, Nikki combines sharp attention to detail with a warm, professional touch.
+      Whether managing high-profile events or day-to-day operations, Nicole combines sharp attention to detail with a warm, professional touch.
     </p>
   </div>
 </div>
