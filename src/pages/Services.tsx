@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 import { FileText, Calculator, Briefcase, Users, CheckCircle, ArrowRight, Settings } from 'lucide-react';
 
 const Services = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // If there's a hash in the URL, scroll to that section
@@ -94,7 +94,7 @@ const Services = () => {
       services: [
         'Financial Strategy Development',
         'Board Meeting Preparation',
-        'Investor Relations Support',
+        // 'Investor Relations Support',
         'Risk Management',
         'Capital Structure Planning',
         'Software Implementation',
@@ -183,12 +183,16 @@ const Services = () => {
                       </ul>
                     </div>
 
-                    <Link to="/booking">
-                      <Button className="bg-primary-900 text-white transition-all duration-300 transform hover:bg-primary-800 hover:scale-105 hover:shadow-lg">
-                        Get Started
-                        <ArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" size={20} />
-                      </Button>
-                    </Link>
+                    <Button 
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                        navigate('/booking');
+                      }}
+                      className="bg-primary-900 text-white transition-all duration-300 transform hover:bg-primary-800 hover:scale-105 hover:shadow-lg"
+                    >
+                      Get Started
+                      <ArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" size={20} />
+                    </Button>
 
                   </div>
                   
@@ -228,16 +232,21 @@ const Services = () => {
             Schedule a free consultation to discuss your specific needs and learn how we can help your business thrive.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/booking">
-              <Button size="lg" className="bg-primary-900 hover:bg-primary-800 text-white">
-                Schedule Free Consultation
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white">
-                Contact Us
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              className="bg-primary-900 hover:bg-primary-800 text-white"
+              onClick={() => navigate('/booking')}
+            >
+              Schedule Free Consultation
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white"
+              onClick={() => navigate('/contact')}
+            >
+              Contact Us
+            </Button>
           </div>
         </div>
       </section>
