@@ -65,7 +65,10 @@ const Services = () => {
       description: 'Part-time CFO expertise for growing businesses',
       color: 'from-cyan-500 to-cyan-600',
       features: [
-        'P&L Service'
+        'P&L Support',
+        'Ad Hoc Support/Special projects',
+        'Assist with special reporting needs',
+        'Assistance with non frequent reports/special reports',
       ]
     }
   ];

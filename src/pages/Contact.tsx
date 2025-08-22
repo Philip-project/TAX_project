@@ -18,66 +18,70 @@ const Contact = () => {
     message: ''
   });
   const { toast } = useToast();
+  const [loading, setLoading] = useState(false); // Added loading state
 
- const handleSubmit = async (e: React.FormEvent) => {
-   e.preventDefault();
- 
-   try {
-     const plainData = JSON.stringify({
-       formType: "contactForm",
-       ...formData
-     });
- 
-     const response = await fetch( 'https://script.google.com/macros/s/AKfycbz6CggoQmNdhL-z9HeHW2i8r1YOf6nbVscQIwFyAlbCR-Dzm69yOpPelpvzttkIm5gBXg/exec', {
-       method: 'POST',
-       headers: {
-         'Content-Type': 'text/plain;charset=utf-8'  // ✅ No preflight triggered!
-       },
-       body: plainData
-     });
- const responseText = await response.text();
- console.log("Raw Response:", responseText);
- 
- let result;
- try {
-   result = JSON.parse(responseText);
- } catch (err) {
-   console.error("Failed to parse JSON:", err);
-   toast({
-     title: "Error!",
-     description: "Invalid server response. Check console.",
-   });
-   return;
- }
- 
- 
-     if (result.result === 'success') {
-       toast({
-         title: "Message Sent!",
-         description: "We'll get back to you within 24 hours.",
-       });
-       setFormData({
-         name: '',
-         email: '',
-         phone: '',
-         company: '',
-         service: '',
-         message: ''
-       });
-     } else {
-       toast({
-         title: "Error!",
-         description: "Failed to submit form. Try again.",
-       });
-     }
-   } catch (error) {
-     console.error('Submission Error:', error);
-     toast({
-       title: "Network Error!",
-       description: "Unable to submit form. Please try again later.",
-     });
-   }
- };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true); // Start loading
+
+    try {
+      const plainData = JSON.stringify({
+        formType: "contactForm",
+        ...formData
+      });
+
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyEzhfeCDxqO01JoERrKvAaGnc_LtuYcEmiiSu57JC6WoG28WC7GWQwpgVqcTMZ8bm0Aw/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'  // ✅ No preflight triggered!
+        },
+        body: plainData
+      });
+      const responseText = await response.text();
+      console.log("Raw Response:", responseText);
+
+      let result;
+      try {
+        result = JSON.parse(responseText);
+      } catch (err) {
+        console.error("Failed to parse JSON:", err);
+        toast({
+          title: "Error!",
+          description: "Invalid server response. Check console.",
+        });
+        setLoading(false); // Stop loading on error
+        return;
+      }
+
+      if (result.result === 'success') {
+        toast({
+          title: "Message Sent!",
+          description: "We'll get back to you within 24 hours.",
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        toast({
+          title: "Error!",
+          description: "Failed to submit form. Try again.",
+        });
+      }
+    } catch (error) {
+      console.error('Submission Error:', error);
+      toast({
+        title: "Network Error!",
+        description: "Unable to submit form. Please try again later.",
+      });
+    } finally {
+      setLoading(false); // Stop loading regardless of success or failure
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -111,18 +115,6 @@ const Contact = () => {
       content: '123 Main Street, Kansas City, MO 64111',
       description: 'Visit us by appointment'
     }
-    // {
-    //   icon: MapPin,
-    //   title: 'Location',
-    //   content: 'Connecticut, USA',
-    //   description: 'Serving clients nationwide'
-    // },
-    // {
-    //   icon: Users,
-    //   title: 'Social Media',
-    //   content: '@ProTaxKC',
-    //   description: 'Connect with us on LinkedIn'
-    // }
   ];
 
   const faqs = [
@@ -384,8 +376,19 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   className="w-full bg-primary-900 hover:bg-primary-800 text-white text-lg py-3"
+                  disabled={loading} // Disable button while loading
                 >
-                  Send Message
+                  {loading ? (
+                    <span className="flex items-center justify-center">
+                      <svg className="animate-spin h-5 w-5 mr-2 text-white" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </span>
+                  ) : (
+                    'Send Message'
+                  )}
                 </Button>
               </form>
             </CardContent>
