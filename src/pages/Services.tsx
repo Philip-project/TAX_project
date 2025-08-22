@@ -116,7 +116,7 @@ const Services = () => {
         'P&L Support',
         'Ad Hoc Support/Special projects',
         'Assist with special reporting needs',
-        'assistance with non frequent reports/special reports',
+        'Assistance with non frequent reports/special reports',
       ],
       benefits: [
         'C-level financial expertise',
