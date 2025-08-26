@@ -140,7 +140,7 @@ const About = () => {
       <div className="bg-indigo-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 flex items-center gap-6 group">
         <div className="flex-shrink-0 w-28 h-28 overflow-hidden rounded-full">
           <img
-            src="/lovable-uploads/michael.png"
+            src="/lovable-uploads/img2.png"
             alt="Michael – FP&A Expert"
             className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
           />
@@ -167,7 +167,7 @@ const About = () => {
       <div className="bg-indigo-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 flex items-center gap-6 group">
         <div className="flex-shrink-0 w-28 h-28 overflow-hidden rounded-full">
           <img
-            src="/lovable-uploads/nikhi.jpg"
+            src="/lovable-uploads/img3.png"
             alt="Nikki – Booking & Project Management Expert"
             className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
           />
@@ -192,6 +192,7 @@ const About = () => {
     </div>
   </div>
 </section>
+
 
 
 
