@@ -250,8 +250,7 @@ const Services = () => {
               variant="outline"
               className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white"
               onClick={() => {
-                window.scrollTo(0, 0);
-                navigate('/contact');
+                navigate('/contact#contact-form');
               }}
             >
               Contact Us
