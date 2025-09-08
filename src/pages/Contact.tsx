@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -9,6 +10,9 @@ import { MapPin, Phone, Mail, Clock, MessageCircle, Users } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
+  const location = useLocation();
+  const contactFormRef = useRef<HTMLDivElement>(null);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,6 +23,19 @@ const Contact = () => {
   });
   const { toast } = useToast();
   const [loading, setLoading] = useState(false); // Added loading state
+
+  // Handle scroll to contact form when component mounts or location changes
+  useEffect(() => {
+    if (location.hash === '#contact-form' && contactFormRef.current) {
+      const timer = setTimeout(() => {
+        contactFormRef.current?.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -259,7 +276,7 @@ const Contact = () => {
       </section>
 
       {/* Moved Contact Form Section */}
-      <section className="py-20 bg-gray-50">
+      <section ref={contactFormRef} id="contact-form" className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">

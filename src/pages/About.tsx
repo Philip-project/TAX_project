@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,6 +8,40 @@ import { Link } from 'react-router-dom';
 import { Target, Users, Award, CheckCircle, Calendar, TrendingUp, Shield } from 'lucide-react';
 
 const About = () => {
+  const navigate = useNavigate();
+
+  const handleBookClick = () => {
+    // Navigate to the booking page with the hash
+    navigate('/booking#booking-section');
+    
+    // Then scroll to the button after a small delay
+    setTimeout(() => {
+      const element = document.querySelector('#booking-section .flex.justify-center button');
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+    }, 100);
+  };
+
+  const handleContactClick = () => {
+    // Navigate to the contact page with the hash
+    navigate('/contact#contact-form');
+    
+    // Then scroll to the form after a small delay
+    setTimeout(() => {
+      const element = document.getElementById('contact-form');
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }, 100);
+  };
+
   const stats = [
     { number: '10+', label: 'Years Experience' },
     { number: '500+', label: 'Clients Served' },
@@ -413,16 +447,21 @@ const About = () => {
             Experience the difference that strategic financial guidance can make for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/booking">
-              <Button size="lg" className="bg-primary-900 hover:bg-primary-800 text-white">
-                Schedule Free Consultation
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white">
-                Get in Touch
-              </Button>
-            </Link>
+            <Button 
+              onClick={handleBookClick}
+              size="lg" 
+              className="bg-primary-900 hover:bg-primary-800 text-white"
+            >
+              Schedule Free Consultation
+            </Button>
+            <Button 
+              onClick={handleContactClick}
+              size="lg" 
+              variant="outline" 
+              className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white"
+            >
+              Get in Touch
+            </Button>
           </div>
         </div>
       </section>
