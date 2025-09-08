@@ -130,13 +130,13 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-900 to-secondary-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-heading font-bold text-5xl mb-6">Our Services</h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            Comprehensive financial solutions tailored to your business needs. 
+            Comprehensive financial solutions tailored to your business needs.
             From tax preparation to strategic CFO services, we've got you covered.
           </p>
         </div>
@@ -149,7 +149,7 @@ const Services = () => {
             {detailedServices.map((service, index) => {
               // Generate consistent ID for each service section
               let serviceId = service.title.toLowerCase().replace(/\s+/g, '-');
-              
+
               // Special cases to match footer links exactly
               if (service.title.toLowerCase().includes('cfo')) {
                 serviceId = 'external-cfo';
@@ -162,7 +162,7 @@ const Services = () => {
               } else if (service.id) {
                 serviceId = service.id;
               }
-              
+
               return (
                 <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
                   <div id={serviceId} className={`${index % 2 === 1 ? 'lg:order-2' : ''} scroll-mt-24`}>
@@ -173,7 +173,7 @@ const Services = () => {
                       {service.title}
                     </h2>
                     <p className="text-lg text-gray-600 mb-6">{service.description}</p>
-                    
+
                     <div className="mb-8">
                       <h3 className="font-semibold text-xl text-primary-900 mb-4">Key Benefits:</h3>
                       <ul className="space-y-2">
@@ -186,7 +186,7 @@ const Services = () => {
                       </ul>
                     </div>
 
-                    <Button 
+                    <Button
                       onClick={() => {
                         window.scrollTo(0, 0);
                         navigate('/booking');
@@ -198,7 +198,7 @@ const Services = () => {
                     </Button>
 
                   </div>
-                  
+
                   <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                     <Card className="shadow-xl border border-transparent hover:border-primary-300 transition-transform duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
                       <CardHeader>
@@ -235,18 +235,24 @@ const Services = () => {
             Schedule a free consultation to discuss your specific needs and learn how we can help your business thrive.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-primary-900 hover:bg-primary-800 text-white"
-              onClick={() => navigate('/booking')}
+              onClick={() => {
+                window.scrollTo(0, 0);
+                navigate('/booking');
+              }}
             >
               Schedule Free Consultation
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
+            <Button
+              size="lg"
+              variant="outline"
               className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white"
-              onClick={() => navigate('/contact')}
+              onClick={() => {
+                window.scrollTo(0, 0);
+                navigate('/contact');
+              }}
             >
               Contact Us
             </Button>
