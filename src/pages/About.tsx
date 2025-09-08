@@ -154,7 +154,7 @@ const About = () => {
             </div>
             <div className='mt-11'>
               <img
-                src="/lovable-uploads/img3.jpg"
+                src="/lovable-uploads/img1.jpg"
                 alt="Professional team meeting"
                 className="rounded-lg shadow-xl"
               />
