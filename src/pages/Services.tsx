@@ -165,7 +165,8 @@ const Services = () => {
 
               return (
                 <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
-                  <div id={serviceId} className={`${index % 2 === 1 ? 'lg:order-2' : ''} scroll-mt-24`}>
+                  {/* Service Details always on the left */}
+                  <div id={serviceId} className="scroll-mt-24">
                     <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                       <service.icon className="text-primary-900" size={32} />
                     </div>
@@ -196,10 +197,10 @@ const Services = () => {
                       Get Started
                       <ArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" size={20} />
                     </Button>
-
                   </div>
 
-                  <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  {/* What's Included always on the right */}
+                  <div>
                     <Card className="shadow-xl border border-transparent hover:border-primary-300 transition-transform duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
                       <CardHeader>
                         <CardTitle className="text-xl text-primary-900">
