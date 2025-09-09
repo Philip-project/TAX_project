@@ -12,6 +12,9 @@ import { useToast } from '@/hooks/use-toast';
 const Contact = () => {
   const location = useLocation();
   const contactFormRef = useRef<HTMLDivElement>(null);
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   const [formData, setFormData] = useState({
     name: '',
