@@ -50,7 +50,7 @@ const Contact = () => {
         ...formData
       });
 
-      const response = await fetch('https://script.google.com/macros/s/AKfycbyEzhfeCDxqO01JoERrKvAaGnc_LtuYcEmiiSu57JC6WoG28WC7GWQwpgVqcTMZ8bm0Aw/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbymaQdeFhxK_M8EYOqj1vfnTfXhhhztLuVEboQvFfxy6-27II8PW-UMCoHb6kDOGg1d5g/exec', {
         method: 'POST',
         headers: {
           'Content-Type': 'text/plain;charset=utf-8'  // ✅ No preflight triggered!
