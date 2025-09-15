@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Target, Users, Award, CheckCircle, Calendar, TrendingUp, Shield } from 'lucide-react';
 
+
 // ✅ Reusable TeamCard with dropdown
 function TeamCard({ img, name, intro, children }: { img: string; name: string; intro: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -149,97 +150,100 @@ const About = () => {
       </section>
 
       {/* Our Team */}
-     
-<section className="py-20 bg-gray-50">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">
-      Our Team
-    </h2>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      {/* Michael */}
-      <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
-        <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
-          <img
-            src="/lovable-uploads/img2.png"
-            alt="Michael – FP&A Expert"
-            className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
-        <div className="flex-1 flex flex-col">
-          <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Michael</h3>
-          <p className="text-gray-700 mb-4 leading-relaxed text-center">
-            Michael is an FP&A professional with over a decade of experience driving financial strategy across startups, growth-stage, and large enterprises.
-          </p>
-          <h4 className="font-bold text-indigo-800 mb-3 text-lg">Key Strengths:</h4>
-          <ul className="list-disc pl-5 space-y-2">
-            <li><strong>Financial Modeling & Forecasting:</strong> Built scalable FP&A systems.</li>
-            <li><strong>Technical Proficiency:</strong> Excel, Power BI, Oracle, Hyperion.</li>
-            <li><strong>Business Collaboration:</strong> Partnered cross-functionally to optimize profitability.</li>
-            <li><strong>Emerging Leadership:</strong> Led high-impact initiatives with mentorship.</li>
-          </ul>
-          <p className="italic border-t border-indigo-100 pt-4">
-            His career spans diverse industries, including hospitality, advertising, PR, and manufacturing.
-          </p>
-        </div>
-      </div>
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">
+            Our Team
+          </h2>
 
-      {/* Nicole */}
-      <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
-        <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
-          <img
-            src="/lovable-uploads/img4.jpg"
-            alt="Nicole – Booking & Project Management Expert"
-            className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
-        <div className="flex-1 flex flex-col">
-          <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Nicole</h3>
-          <p className="text-gray-700 mb-4 leading-relaxed text-center">
-            Nicole is a seasoned booking and project management expert with over 10 years of experience delivering exceptional customer service.
-          </p>
-          <h4 className="font-bold text-indigo-800 mb-3 text-lg">What She Brings:</h4>
-          <ul className="list-disc pl-5 space-y-2">
-            <li><strong>Efficient Booking & Scheduling:</strong> Streamlines appointments, travel, and logistics.</li>
-            <li><strong>Project Management Excellence:</strong> Keeps complex initiatives on track.</li>
-            <li><strong>Client-Centric Mindset:</strong> Builds lasting relationships by anticipating needs.</li>
-          </ul>
-          <p className="italic border-t border-indigo-100 pt-4">
-            Whether managing high-profile events or day-to-day operations, Nicole combines detail with a warm, professional touch.
-          </p>
-        </div>
-      </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-      {/* Bertony */}
-      <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
-        <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
-          <img
-            src="/lovable-uploads/img5.jpg"
-            alt="Bertony Jean-Louis – Business Consultant & Strategic Advisor"
-            className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
-        <div className="flex-1 flex flex-col">
-          <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Bertony Jean-Louis</h3>
-          <p className="text-gray-700 mb-4 leading-relaxed text-center">
-            With over a decade of experience in business operations, strategy, and accounting, Bertony helps clients translate complex financial data into growth strategies.
-          </p>
-          <h4 className="font-bold text-indigo-800 mb-3 text-lg">Core Expertise:</h4>
-          <ul className="list-disc pl-5 space-y-2">
-            <li><strong>Strategic Advisory:</strong> Guides entrepreneurs and startups through key decisions.</li>
-            <li><strong>Operations & Process Improvement:</strong> Streamlines processes and enhances journeys.</li>
-            <li><strong>Financial Planning:</strong> Expertise in pricing, budgeting, and forecasting.</li>
-          </ul>
-          <p className="italic border-t border-indigo-100 pt-4">
-            Known for his client-first approach, he empowers business owners with clarity and confidence to scale successfully.
-          </p>
-        </div>
-      </div>
+            {/* Michael */}
+            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
+              <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                <img
+                  src="/lovable-uploads/img2.png"
+                  alt="Michael – FP&A Expert"
+                  className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
+                />
 
-    </div>
-  </div>
-</section>
+              </div>
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Michael</h3>
+                <p className="text-gray-700 mb-4 leading-relaxed text-center">
+                  Michael is an FP&A professional with over a decade of experience driving financial strategy across startups, growth-stage, and large enterprises.
+                </p>
+                <h4 className="font-bold text-indigo-800 mb-3 text-lg">Key Strengths:</h4>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li><strong>Financial Modeling & Forecasting:</strong> Built scalable FP&A systems.</li>
+                  <li><strong>Technical Proficiency:</strong> Excel, Power BI, Oracle, Hyperion.</li>
+                  <li><strong>Business Collaboration:</strong> Partnered cross-functionally to optimize profitability.</li>
+                  <li><strong>Emerging Leadership:</strong> Led high-impact initiatives with mentorship.</li>
+                </ul>
+                <p className="italic border-t border-indigo-100 pt-4">
+                  His career spans diverse industries, including hospitality, advertising, PR, and manufacturing.
+                </p>
+              </div>
+            </div>
+
+            {/* Nicole */}
+            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
+              <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                <img
+                  src="/lovable-uploads/img4.jpg"
+                  alt="Nicole – Booking & Project Management Expert"
+                  className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
+                />
+
+              </div>
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Nicole</h3>
+                <p className="text-gray-700 mb-4 leading-relaxed text-center">
+                  Nicole is a seasoned booking and project management expert with over 10 years of experience delivering exceptional customer service.
+                </p>
+                <h4 className="font-bold text-indigo-800 mb-3 text-lg">What She Brings:</h4>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li><strong>Efficient Booking & Scheduling:</strong> Streamlines appointments, travel, and logistics.</li>
+                  <li><strong>Project Management Excellence:</strong> Keeps complex initiatives on track.</li>
+                  <li><strong>Client-Centric Mindset:</strong> Builds lasting relationships by anticipating needs.</li>
+                </ul>
+                <p className="italic border-t border-indigo-100 pt-4">
+                  Whether managing high-profile events or day-to-day operations, Nicole combines detail with a warm, professional touch.
+                </p>
+              </div>
+            </div>
+
+            {/* Bertony */}
+            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
+              <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                <img
+                  src="/lovable-uploads/img5.jpg"
+                  alt="Bertony Jean-Louis – Business Consultant & Strategic Advisor"
+                  className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
+                />
+
+              </div>
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Bertony Jean-Louis</h3>
+                <p className="text-gray-700 mb-4 leading-relaxed text-center">
+                  With over a decade of experience in business operations, strategy, and accounting, Bertony helps clients translate complex financial data into growth strategies.
+                </p>
+                <h4 className="font-bold text-indigo-800 mb-3 text-lg">Core Expertise:</h4>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li><strong>Strategic Advisory:</strong> Guides entrepreneurs and startups through key decisions.</li>
+                  <li><strong>Operations & Process Improvement:</strong> Streamlines processes and enhances journeys.</li>
+                  <li><strong>Financial Planning:</strong> Expertise in pricing, budgeting, and forecasting.</li>
+                </ul>
+                <p className="italic border-t border-indigo-100 pt-4">
+                  Known for his client-first approach, he empowers business owners with clarity and confidence to scale successfully.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* Our Values */}
       <section className="py-20 bg-primary-50">
