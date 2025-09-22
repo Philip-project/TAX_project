@@ -21,7 +21,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 mb-6">
-              Expert tax and accounting services for businesses and individuals in New York, Florida, New Jersey, and Connecticut.
+              Expert tax and accounting services for businesses and individuals in all states.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
