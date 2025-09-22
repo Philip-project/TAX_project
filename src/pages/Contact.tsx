@@ -209,7 +209,7 @@ const Contact = () => {
           </div>
 
           {/* Business Hours & Location */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-20">
+          <div className="grid justify-center mb-20">
             <Card className="shadow-xl border-0">
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
@@ -240,7 +240,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-xl border-0">
+            {/* <Card className="shadow-xl border-0">
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
                   <MapPin className="text-primary-900 mr-3" size={32} />
@@ -273,7 +273,7 @@ const Contact = () => {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </Card> */}
           </div>
         </div>
       </section>
