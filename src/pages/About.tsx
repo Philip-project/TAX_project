@@ -170,9 +170,9 @@ const About = () => {
 
               </div>
               <div className="flex-1 flex flex-col">
-                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Michael</h3>
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Michael Kilcourse</h3>
                 <p className="text-gray-700 mb-4 leading-relaxed text-center">
-                  Michael is an FP&A professional with over a decade of experience driving financial strategy across startups, growth-stage, and large enterprises.
+                  Michael Kilcourse is an FP&A professional with over a decade of experience driving financial strategy across startups, growth-stage, and large enterprises.
                 </p>
                 <h4 className="font-bold text-indigo-800 mb-3 text-lg">Key Strengths:</h4>
                 <ul className="list-disc pl-5 space-y-2">
@@ -198,9 +198,9 @@ const About = () => {
 
               </div>
               <div className="flex-1 flex flex-col">
-                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Nicole</h3>
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Nicole Seymour</h3>
                 <p className="text-gray-700 mb-4 leading-relaxed text-center">
-                  Nicole is a seasoned booking and project management expert with over 10 years of experience delivering exceptional customer service.
+                  Nicole Seymour is a seasoned booking and project management expert with over 10 years of experience delivering exceptional customer service.
                 </p>
                 <h4 className="font-bold text-indigo-800 mb-3 text-lg">What She Brings:</h4>
                 <ul className="list-disc pl-5 space-y-2">
@@ -209,7 +209,7 @@ const About = () => {
                   <li><strong>Client-Centric Mindset:</strong> Builds lasting relationships by anticipating needs.</li>
                 </ul>
                 <p className="italic border-t border-indigo-100 pt-4">
-                  Whether managing high-profile events or day-to-day operations, Nicole combines detail with a warm, professional touch.
+                  Whether managing high-profile events or day-to-day operations, Nicole Seymour combines detail with a warm, professional touch.
                 </p>
               </div>
             </div>
