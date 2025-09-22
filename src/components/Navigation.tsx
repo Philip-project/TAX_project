@@ -252,25 +252,6 @@ const Navigation = () => {
 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center">
-            <div className="relative mr-1 no-translate language-selector" ref={mobileLangRef}>
-              <button
-                onClick={() => setShowLanguages(!showLanguages)}
-                className="flex items-center p-2"
-                aria-label="Select language"
-              >
-                <Globe size={20} />
-                <span className="ml-1 text-sm font-medium">
-                  {languages.find(l => l.code === currentLanguage)?.code.toUpperCase() || 'EN'}
-                </span>
-              </button>
-              {showLanguages && (
-                <LanguageDropdown 
-                  languages={languages} 
-                  changeLanguage={changeLanguage}
-                  currentLanguage={currentLanguage}
-                />
-              )}
-            </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-700 hover:text-blue-600 p-2"
@@ -284,7 +265,7 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-6 space-y-1 bg-white border-t border-slate-200">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-slate-200">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -295,6 +276,28 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
+              {/* Language Selector for Mobile */}
+              <div className="px-4 py-3 no-translate language-selector" ref={mobileLangRef}>
+                <div className="relative">
+                  <button
+                    onClick={() => setShowLanguages(!showLanguages)}
+                    className="flex items-center justify-between w-full text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors duration-200 p-3"
+                    aria-label="Select language"
+                  >
+                    <div className="flex items-center">
+                      <Globe size={20} className="mr-3" />
+                      <span>Language</span>
+                    </div>
+                    <span className="font-medium text-blue-600">
+                      {languages.find(l => l.code === currentLanguage)?.code.toUpperCase() || 'EN'}
+                    </span>
+                  </button>
+                  {showLanguages && (
+                    <LanguageDropdown languages={languages} changeLanguage={changeLanguage} currentLanguage={currentLanguage} />
+                  )}
+                </div>
+              </div>
+
               <div className="px-4 pt-4">
                 <Link to="/booking" className="w-full">
                   <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl">

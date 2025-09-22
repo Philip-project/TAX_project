@@ -17,15 +17,15 @@ const Hero = () => {
               <Shield className="mr-2" size={16} />
               Trusted CPA Experts
             </div>
-            <h1 className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
+            <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
               Financial 
               <span className="block bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Excellence</span>
-              <span className="block text-4xl md:text-5xl lg:text-6xl">Delivered</span>
+              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Delivered</span>
             </h1>
             <p className="text-xl text-slate-300 mb-10 leading-relaxed max-w-xl">
               Strategic tax planning, comprehensive accounting, and CFO services that drive business growth and financial success.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-16">
               <Link to="/booking">
               <Button 
   size="lg"

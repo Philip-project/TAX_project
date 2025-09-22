@@ -105,7 +105,7 @@ const About = () => {
                 businesses and individuals.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 xs:grid-cols-2 gap-6">
               {stats.map((stat, index) => (
                 <Card key={index} className="bg-white/10 border-0 text-center">
                   <CardContent className="p-6">
@@ -253,7 +253,7 @@ const About = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">The principles that guide everything we do and define our commitment to excellence.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <Card key={index} className="hover:shadow-xl transition-shadow duration-300 border-0 shadow-lg">
                 <CardContent className="p-6 text-center">
@@ -277,7 +277,7 @@ const About = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">We go beyond compliance to provide the strategic insights and clarity businesses need to thrive.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {services.map((service, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-6 text-center">

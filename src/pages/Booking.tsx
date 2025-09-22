@@ -69,7 +69,7 @@ const Booking = () => {
           </div>
 
           {/* Three Cards Below - Compact version */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* What to Expect */}
             <Card className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 border-2 border-transparent">
               <CardHeader className="pb-3">
