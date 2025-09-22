@@ -164,9 +164,9 @@ const Services = () => {
               }
 
               return (
-                <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
+                <div key={index} id={serviceId} className="scroll-mt-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   {/* Service Details always on the left */}
-                  <div id={serviceId} className="scroll-mt-24">
+                  <div>
                     <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                       <service.icon className="text-primary-900" size={32} />
                     </div>

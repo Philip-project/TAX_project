@@ -92,7 +92,7 @@ const Services = () => {
           <div className="inline-flex items-center px-4 py-2 bg-blue-100 rounded-full text-blue-700 text-sm font-medium mb-6">
             Our Expertise
           </div>
-          <h2 className="font-heading font-bold text-5xl text-slate-900 mb-6">
+          <h2 className="font-heading font-bold text-4xl sm:text-5xl text-slate-900 mb-6">
             Comprehensive Financial Solutions
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
@@ -102,7 +102,7 @@ const Services = () => {
         </div>
 
         {/* Main Services */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => {
             const anchor = getServiceAnchor(service.id);
             return (
