@@ -227,13 +227,13 @@ const About = () => {
               <div className="flex-1 flex flex-col">
                 <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Bertony Jean-Louis</h3>
                 <p className="text-gray-700 mb-4 leading-relaxed text-center">
-                  With over a decade of experience in business operations, strategy, and accounting, Bertony helps clients translate complex financial data into growth strategies.
+                  Bertony is a University of Michigan MBA with over a decade of experience spanning investment banking (Goldman Sachs), corporate strategy (DoorDash), and audit (KPMG).
                 </p>
                 <h4 className="font-bold text-indigo-800 mb-3 text-lg">Core Expertise:</h4>
                 <ul className="list-disc pl-5 space-y-2">
-                  <li><strong>Strategic Advisory:</strong> Guides entrepreneurs and startups through key decisions.</li>
-                  <li><strong>Operations & Process Improvement:</strong> Streamlines processes and enhances journeys.</li>
-                  <li><strong>Financial Planning:</strong> Expertise in pricing, budgeting, and forecasting.</li>
+                  <li><strong>Financial Strategy & Analysis:</strong> Transforms complex financial data into actionable insights that drive growth.</li>
+                  <li><strong>Cross-Sector Expertise:</strong> Leverages experience across banking, corporate strategy, and audit to build scalable, efficient operations.</li>
+                  <li><strong>Revenue & Operational Excellence:</strong> Develops strategies that enhance revenue growth while optimizing processes for clients.</li>
                 </ul>
                 <p className="italic border-t border-indigo-100 pt-4">
                   Known for his client-first approach, he empowers business owners with clarity and confidence to scale successfully.
