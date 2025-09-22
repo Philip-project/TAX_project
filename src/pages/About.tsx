@@ -122,7 +122,7 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 bg-primary-50">
+      <section className="py-20 bg-primary-25">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
       <div>
@@ -146,6 +146,36 @@ const About = () => {
     </div>
   </div>
 </section>
+        
+      <section>
+        <div className="py-20 bg-primary-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-8">
+          <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">Kelvine Clarke</h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">   
+            {/* Left Content */}
+            <div>
+              {/* <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">Kelvine Clarke</h2> */}
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <p className="text-lg text-justify">
+                  Kelvine Clarke is a results-driven CPA and finance leader with over a decade of experience delivering strategic financial management and operational improvements for organizations, including publicly traded companies.
+                </p>
+                <p className="text-lg text-justify">
+                  His core expertise includes financial analysis, internal and external reporting, ERP system implementation, and complex project management. He is adept at translating technical data into actionable insights for executive leadership and collaborating across all organizational levels to achieve strategic objectives.
+                </p>
+                <p className="text-lg text-justify">
+                  His experience includes serving high-profile clients such as Bloomberg, Spotify, CVS, and Walgreens.
+                </p>
+              </div>
+            </div>
+            {/* Right Image */}
+            <div className="mt-11">
+              <img src="lovable-uploads\img6.jpg" alt="Kelvine Clarke" className="rounded-lg shadow-xl" />
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+      
 
 
       {/* Our Team */}
@@ -243,7 +273,6 @@ const About = () => {
             <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">Our Values</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">The principles that guide everything we do and define our commitment to excellence.</p>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <Card key={index} className="hover:shadow-xl transition-shadow duration-300 border-0 shadow-lg">
@@ -268,7 +297,6 @@ const About = () => {
             <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">Why Choose ProTax by KC?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">We go beyond compliance to provide the strategic insights and clarity businesses need to thrive.</p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {services.map((service, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
