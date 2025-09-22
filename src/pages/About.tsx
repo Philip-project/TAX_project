@@ -105,7 +105,7 @@ const About = () => {
                 businesses and individuals.
               </p>
             </div>
-            <div className="grid grid-cols-1 xs:grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6">
               {stats.map((stat, index) => (
                 <Card key={index} className="bg-white/10 border-0 text-center">
                   <CardContent className="p-6">
@@ -122,62 +122,31 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 bg-primary-25">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">Our Story</h2>
-              <div className="space-y-6 text-gray-700 leading-relaxed">
-                <p className="text-lg text-justify">
-                  ProTax by KC & Associates was founded with a simple mission: to provide
-                  expert financial guidance that goes beyond traditional accounting services.
-                </p>
-                <p className="text-lg text-justify">
-                  Our team includes seasoned financial professionals with over a decade of
-                  experience in tax filing, tax planning, financial forecasting, and strategic business analysis.
-                </p>
-                <p className="text-lg text-justify">
-                  What sets us apart is our commitment to building lasting relationships.
-                  We take the time to understand your unique situation and aspirations.
-                </p>
-              </div>
-            </div>
-            <div className="mt-11">
-              <img src="/lovable-uploads/img1.jpg" alt="Professional team meeting" className="rounded-lg shadow-xl" />
-            </div>
-          </div>
+      <section className="py-20 bg-primary-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+      <div>
+        <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">Our Story</h2>
+        <div className="space-y-5 text-gray-700 leading-relaxed lg:text-justify">
+          <p className="text-lg">
+            ProTax by KC & Associates was founded with a simple mission: to provide expert financial guidance that goes beyond traditional accounting services. We focus on making financial decisions simpler and more effective for individuals and businesses.
+          </p>
+          <p className="text-lg">
+            Our team includes seasoned professionals with over a decade of experience in tax filing, planning, forecasting, and business analysis. This background equips us to handle both routine and complex financial challenges with confidence.
+          </p>
+          <p className="text-lg">
+            What sets us apart is our commitment to lasting relationships. We take the time to understand your unique situation, ensuring our advice is practical and aligned with your goals.
+            By combining expertise with personal attention, we strive to be a trusted partner in your financial journey.
+          </p>
         </div>
-      </section>
-        
-      <section>
-        <div className="py-20 bg-primary-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-8">
-          <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">Kelvine Clarke</h2>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">   
-            {/* Left Content */}
-            <div>
-              {/* <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">Kelvine Clarke</h2> */}
-              <div className="space-y-6 text-gray-700 leading-relaxed">
-                <p className="text-lg text-justify">
-                  Kelvine Clarke is a results-driven CPA and finance leader with over a decade of experience delivering strategic financial management and operational improvements for organizations, including publicly traded companies.
-                </p>
-                <p className="text-lg text-justify">
-                  His core expertise includes financial analysis, internal and external reporting, ERP system implementation, and complex project management. He is adept at translating technical data into actionable insights for executive leadership and collaborating across all organizational levels to achieve strategic objectives.
-                </p>
-                <p className="text-lg text-justify">
-                  His experience includes serving high-profile clients such as Bloomberg, Spotify, CVS, and Walgreens.
-                </p>
-              </div>
-            </div>
-            {/* Right Image */}
-            <div className="mt-11">
-              <img src="lovable-uploads\img6.jpg" alt="Kelvine Clarke" className="rounded-lg shadow-xl" />
-            </div>
-          </div>
-        </div>
-        </div>
-      </section>
-      
+      </div>
+      <div className="mt-0 lg:mt-11 flex justify-center lg:justify-end">
+        <img src="/lovable-uploads/img1.jpg" alt="Professional team meeting" className="rounded-lg shadow-xl max-w-full h-auto" />
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Our Team */}
       <section className="py-20 bg-gray-50">
@@ -274,7 +243,8 @@ const About = () => {
             <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">Our Values</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">The principles that guide everything we do and define our commitment to excellence.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <Card key={index} className="hover:shadow-xl transition-shadow duration-300 border-0 shadow-lg">
                 <CardContent className="p-6 text-center">
@@ -299,7 +269,7 @@ const About = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">We go beyond compliance to provide the strategic insights and clarity businesses need to thrive.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             {services.map((service, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-6 text-center">
@@ -313,10 +283,10 @@ const About = () => {
             ))}
           </div>
           <Card className="bg-gradient-to-r from-primary-900 to-secondary-800 text-white border-0">
-            <CardContent className="p-12 text-center">
+            <CardContent className="py-12 px-4 sm:px-6 lg:px-8 text-center">
               <h3 className="font-heading font-bold text-3xl mb-6">Our Mission</h3>
-              <p className="text-xl leading-relaxed max-w-4xl mx-auto">
-                We empower organizations to maximize efficiency and achieve sustainable growth
+              <p className="text-xl leading-relaxed max-w-4xl mx-auto italic">
+               We empower organizations to maximize efficiency and achieve sustainable growth
                 by streamlining financial processes, enhancing collaboration,
                 and implementing financial tools. We give our clients the freedom to focus on
                 what they do best—running their business—while we manage their financial complexities.
