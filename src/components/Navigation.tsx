@@ -106,6 +106,14 @@ const Navigation = () => {
   const mobileLangRef = useRef<HTMLDivElement>(null);
 
   // Inject CSS to hide Google Translate UI
+  const supportedLanguages = [
+    { code: 'en', name: 'English' },
+    { code: 'es', name: 'Spanish' },
+    { code: 'pt', name: 'Portuguese' },
+    { code: 'vi', name: 'Vietnamese' },
+    { code: 'sq', name: 'Albanian' },
+  ];
+
   useEffect(() => {
     const style = document.createElement('style');
     style.innerHTML = hideGoogleTranslateCSS;
@@ -133,48 +141,15 @@ const Navigation = () => {
         },
         "google_translate_element"
       );
-
-      // Add English option manually since Google Translate might not include it
-      const englishOption = {
-        code: 'en',
-        name: 'English'
-      };
-
-      const observer = new MutationObserver(() => {
-        const select = document.querySelector<HTMLSelectElement>('select.goog-te-combo');
-        if (select && select.options.length > 1) {
-          const extractedLangs = Array.from(select.options)
-            .filter(option => option.value)
-            .map(option => ({
-              code: option.value,
-              name: option.text || option.value
-            }));
-          
-          // Combine English with other languages and remove duplicates
-          const allLangs = [englishOption, ...extractedLangs];
-          const uniqueLangs = allLangs.filter((lang, index, self) =>
-            index === self.findIndex((t) => (
-              t.code === lang.code
-            ))
-          );
-          
-          setLanguages(uniqueLangs);
-          observer.disconnect();
-        }
-      });
+      setLanguages(supportedLanguages);
 
       const translateElement = document.getElementById('google_translate_element');
-      if (translateElement) {
-        observer.observe(translateElement, {
-          childList: true,
-          subtree: true,
-        });
-      } else {
+      if (!translateElement) {
         // If Google Translate element doesn't load, still show English
-        setLanguages([englishOption]);
+        setLanguages(supportedLanguages);
       }
     }
-  }, [setLanguages]);
+  }, [setLanguages, supportedLanguages]);
 
   useEffect(() => {
     const addScript = document.createElement("script");
