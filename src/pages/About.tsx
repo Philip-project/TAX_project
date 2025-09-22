@@ -204,7 +204,7 @@ const About = () => {
                 </p>
                 <h4 className="font-bold text-indigo-800 mb-3 text-lg">What She Brings:</h4>
                 <ul className="list-disc pl-5 space-y-2">
-                  <li><strong>Efficient Booking & Scheduling:</strong> Streamlines appointments, travel, and logistics.</li>
+                  <li><strong>Efficient Bookingkeeping & Scheduling:</strong> Streamlines appointments, travel, and logistics.</li>
                   <li><strong>Project Management Excellence:</strong> Keeps complex initiatives on track.</li>
                   <li><strong>Client-Centric Mindset:</strong> Builds lasting relationships by anticipating needs.</li>
                 </ul>
