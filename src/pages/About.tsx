@@ -177,7 +177,7 @@ const About = () => {
                 <h4 className="font-bold text-indigo-800 mb-3 text-lg">Key Strengths:</h4>
                 <ul className="list-disc pl-5 space-y-2">
                   <li><strong>Financial Modeling & Forecasting:</strong> Built scalable FP&A systems.</li>
-                  <li><strong>Technical Proficiency:</strong> Excel, Power BI, Oracle, Hyperion.</li>
+                  {/* <li><strong>Technical Proficiency:</strong> Excel, Power BI, Oracle, Hyperion.</li> */}
                   <li><strong>Business Collaboration:</strong> Partnered cross-functionally to optimize profitability.</li>
                   <li><strong>Emerging Leadership:</strong> Led high-impact initiatives with mentorship.</li>
                 </ul>
