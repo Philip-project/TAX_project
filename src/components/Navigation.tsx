@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Globe } from 'lucide-react';
-
+ 
 declare global {
   interface Window {
     google: {
@@ -11,6 +11,7 @@ declare global {
           options: {
             pageLanguage: string;
             autoDisplay?: boolean;
+            includedLanguages?: string;
           },
           elementId: string
         ) => void;
@@ -19,7 +20,7 @@ declare global {
     googleTranslateElementInit?: () => void;
   }
 }
-
+ 
 // CSS to hide all Google Translate UI elements and prevent translation of our selector
 const hideGoogleTranslateCSS = `
   .goog-te-banner-frame,
@@ -59,7 +60,7 @@ const hideGoogleTranslateCSS = `
     translate: none !important;
   }
 `;
-
+ 
 const LanguageDropdown = ({
   languages,
   changeLanguage,
@@ -76,9 +77,9 @@ const LanguageDropdown = ({
     <div className="max-h-60 overflow-y-auto">
       {languages.length > 0 ? (
         languages.map((lang) => (
-          <button 
-            key={lang.code} 
-            onClick={() => changeLanguage(lang.code)} 
+          <button
+            key={lang.code}
+            onClick={() => changeLanguage(lang.code)}
             className={`w-full text-left px-4 py-2 hover:bg-blue-50 flex justify-between items-center ${
               currentLanguage === lang.code ? 'bg-blue-50 text-blue-600' : ''
             }`}
@@ -95,7 +96,7 @@ const LanguageDropdown = ({
     </div>
   </div>
 );
-
+ 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLanguages, setShowLanguages] = useState(false);
@@ -104,26 +105,18 @@ const Navigation = () => {
   const location = useLocation();
   const desktopLangRef = useRef<HTMLDivElement>(null);
   const mobileLangRef = useRef<HTMLDivElement>(null);
-
+ 
   // Inject CSS to hide Google Translate UI
-  const supportedLanguages = [
-    { code: 'en', name: 'English' },
-    { code: 'es', name: 'Spanish' },
-    { code: 'pt', name: 'Portuguese' },
-    { code: 'vi', name: 'Vietnamese' },
-    { code: 'sq', name: 'Albanian' },
-  ];
-
   useEffect(() => {
     const style = document.createElement('style');
     style.innerHTML = hideGoogleTranslateCSS;
     document.head.appendChild(style);
-    
+   
     return () => {
       document.head.removeChild(style);
     };
   }, []);
-
+ 
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
@@ -131,39 +124,47 @@ const Navigation = () => {
     { name: 'Book Appointment', path: '/booking' },
     { name: 'Contact', path: '/contact' },
   ];
-
+ 
   const googleTranslateElementInit = useCallback(() => {
     if (window.google?.translate) {
       new window.google.translate.TranslateElement(
         {
           pageLanguage: "en",
-          autoDisplay: false
+          autoDisplay: false,
+          // Restrict languages to the desired set
+          includedLanguages: 'en,es,pt,vi,sq'
         },
         "google_translate_element"
       );
-      setLanguages(supportedLanguages);
-
-      const translateElement = document.getElementById('google_translate_element');
-      if (!translateElement) {
-        // If Google Translate element doesn't load, still show English
-        setLanguages(supportedLanguages);
-      }
+ 
+      // Define the fixed set of languages
+      const desiredLanguages = [
+        { code: 'en', name: 'English' },
+        { code: 'es', name: 'Spanish' },
+        { code: 'pt', name: 'Portuguese' },
+        { code: 'vi', name: 'Vietnamese' },
+        { code: 'sq', name: 'Albanian' },
+      ];
+ 
+      // Since the Google Translate element is now hidden, we can just use our fixed list
+      setLanguages(desiredLanguages);
+     
     }
-  }, [setLanguages, supportedLanguages]);
-
+  }, []);
+ 
   useEffect(() => {
     const addScript = document.createElement("script");
     addScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
     addScript.async = true;
     document.body.appendChild(addScript);
     window.googleTranslateElementInit = googleTranslateElementInit;
-
+ 
     return () => {
       delete window.googleTranslateElementInit;
       document.body.removeChild(addScript);
     };
   }, [googleTranslateElementInit]);
-
+ 
   const changeLanguage = (langCode: string) => {
     const select = document.querySelector<HTMLSelectElement>('.goog-te-combo');
     if (select) {
@@ -173,7 +174,7 @@ const Navigation = () => {
     }
     setShowLanguages(false);
   };
-
+ 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -183,7 +184,7 @@ const Navigation = () => {
         setShowLanguages(false);
       }
     };
-
+ 
     if (showLanguages) {
       document.addEventListener('mousedown', handleClickOutside);
     }
@@ -191,7 +192,7 @@ const Navigation = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [showLanguages]);
-
+ 
   return (
     <nav className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -199,9 +200,9 @@ const Navigation = () => {
           {/* Logo and Branding */}
           <div className="flex items-center ml-0">
             <Link to="/" className="flex items-center space-x-3">
-              <img 
-                src="/lovable-uploads/bce15a11-fe78-49dc-8d44-1339cd299a99.png" 
-                alt="ProTax by KC & Associates Logo" 
+              <img
+                src="/lovable-uploads/bce15a11-fe78-49dc-8d44-1339cd299a99.png"
+                alt="ProTax by KC & Associates Logo"
                 className="h-12 w-auto"
               />
               <div>
@@ -210,7 +211,7 @@ const Navigation = () => {
               </div>
             </Link>
           </div>
-
+ 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
@@ -227,11 +228,11 @@ const Navigation = () => {
                 }`}></span>
               </Link>
             ))}
-
+ 
 {/* Language Selector */}
             <div className="relative mr-0 no-translate language-selector" ref={desktopLangRef}>
-              <button 
-                onClick={() => setShowLanguages(!showLanguages)} 
+              <button
+                onClick={() => setShowLanguages(!showLanguages)}
                 className="flex items-center p-2 hover:bg-gray-100 rounded-full -mr-1"
                 aria-label="Select language"
               >
@@ -241,17 +242,36 @@ const Navigation = () => {
                 </span>
               </button>
               {showLanguages && (
-                <LanguageDropdown 
-                  languages={languages} 
+                <LanguageDropdown
+                  languages={languages}
                   changeLanguage={changeLanguage}
                   currentLanguage={currentLanguage}
                 />
               )}
             </div>
           </div>
-
+ 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center">
+            <div className="relative mr-1 no-translate language-selector" ref={mobileLangRef}>
+              <button
+                onClick={() => setShowLanguages(!showLanguages)}
+                className="flex items-center p-2"
+                aria-label="Select language"
+              >
+                <Globe size={20} />
+                <span className="ml-1 text-sm font-medium">
+                  {languages.find(l => l.code === currentLanguage)?.code.toUpperCase() || 'EN'}
+                </span>
+              </button>
+              {showLanguages && (
+                <LanguageDropdown
+                  languages={languages}
+                  changeLanguage={changeLanguage}
+                  currentLanguage={currentLanguage}
+                />
+              )}
+            </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-700 hover:text-blue-600 p-2"
@@ -261,11 +281,11 @@ const Navigation = () => {
             </button>
           </div>
         </div>
-
+ 
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-slate-200">
+            <div className="px-2 pt-2 pb-6 space-y-1 bg-white border-t border-slate-200">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -276,28 +296,6 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              {/* Language Selector for Mobile */}
-              <div className="px-4 py-3 no-translate language-selector" ref={mobileLangRef}>
-                <div className="relative">
-                  <button
-                    onClick={() => setShowLanguages(!showLanguages)}
-                    className="flex items-center justify-between w-full text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors duration-200 p-3"
-                    aria-label="Select language"
-                  >
-                    <div className="flex items-center">
-                      <Globe size={20} className="mr-3" />
-                      <span>Language</span>
-                    </div>
-                    <span className="font-medium text-blue-600">
-                      {languages.find(l => l.code === currentLanguage)?.code.toUpperCase() || 'EN'}
-                    </span>
-                  </button>
-                  {showLanguages && (
-                    <LanguageDropdown languages={languages} changeLanguage={changeLanguage} currentLanguage={currentLanguage} />
-                  )}
-                </div>
-              </div>
-
               <div className="px-4 pt-4">
                 <Link to="/booking" className="w-full">
                   <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl">
@@ -309,11 +307,12 @@ const Navigation = () => {
           </div>
         )}
       </div>
-      
+     
       {/* Hidden Google Translate element */}
       <div id="google_translate_element" className="hidden">Translate</div>
     </nav>
   );
 };
-
+ 
 export default Navigation;
+ 
