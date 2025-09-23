@@ -29,24 +29,24 @@ const About = () => {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 lg:gap-12 items-center">
           <div>
             <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">
               About ProTax by KC & Associates
             </h2>
-            <div className="space-y-6 text-gray-700 leading-relaxed max-w-3xl mx-auto px-4 text-justify">
-  <p className="text-lg">
+            <div className="text-gray-700 leading-relaxed text-justify">
+  <p className="text-lg mb-6">
     ProTax by KC & Associates is a trusted CPA offering expert tax filing, 
     tax strategy, accounting, and external CFO solution services for entrepreneurial 
     businesses and individuals.
   </p>
-  <p className="text-lg">
+  <p className="text-lg mb-6">
     Our team comprises seasoned financial experts with over a decade of experience in tax filing, tax planning, financial forecasting, cash flow management, and strategic business analysis across a wide range of industries.
   </p>
-  <p className="text-lg">
+  <p className="text-lg mb-6">
     We help businesses optimize budgets, enhance financial reporting, and make confident, data-driven decisions. By streamlining financial operations, fostering cross-department collaboration, and integrating powerful financial tools, we enable organizations to boost efficiency and drive sustainable growth.
   </p>
-  <p className="font-semibold text-primary-900">
+  <p className="text-lg font-semibold text-primary-900">
     At ProTax by KC & Associates, we go beyond compliance—we provide the strategic 
     insights and clarity businesses need to thrive in today's competitive landscape.
   </p>
