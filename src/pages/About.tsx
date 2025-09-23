@@ -51,12 +51,6 @@ const About = () => {
 
   const handleBookClick = () => {
     navigate('/booking#booking-section');
-    setTimeout(() => {
-      const element = document.querySelector('#booking-section .flex.justify-center button');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }, 100);
   };
 
   const handleContactClick = () => {
