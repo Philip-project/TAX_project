@@ -124,7 +124,7 @@ const About = () => {
       {/* Our Story */}
       <section className="py-20 bg-primary-25">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+    <div className="grid lg:grid-cols-2 lg:gap-12 items-center">
       <div>
         <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">Our Story</h2>
         <div className="space-y-5 text-gray-700 leading-relaxed lg:text-justify">
@@ -151,25 +151,25 @@ const About = () => {
         <div className="py-20 bg-primary-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-8">
           <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">Kelvine Clarke</h2>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">   
+          <div className="grid lg:grid-cols-2 lg:gap-12 items-center">
             {/* Left Content */}
             <div>
               {/* <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">Kelvine Clarke</h2> */}
-              <div className="space-y-6 text-gray-700 leading-relaxed">
-                <p className="text-lg text-justify">
+              <div className="space-y-5 text-gray-700 leading-relaxed lg:text-justify">
+                <p className="text-lg">
                   Kelvine Clarke is a results-driven CPA and finance leader with over a decade of experience delivering strategic financial management and operational improvements for organizations, including publicly traded companies.
                 </p>
-                <p className="text-lg text-justify">
+                <p className="text-lg">
                   His core expertise includes financial analysis, internal and external reporting, ERP system implementation, and complex project management. He is adept at translating technical data into actionable insights for executive leadership and collaborating across all organizational levels to achieve strategic objectives.
                 </p>
-                <p className="text-lg text-justify">
+                <p className="text-lg">
                   His experience includes serving high-profile clients such as Bloomberg, Spotify, CVS, and Walgreens.
                 </p>
               </div>
             </div>
             {/* Right Image */}
-            <div className="mt-11">
-              <img src="lovable-uploads\img6.jpg" alt="Kelvine Clarke" className="rounded-lg shadow-xl" />
+            <div className="mt-0 lg:mt-11 flex justify-center lg:justify-end">
+              <img src="lovable-uploads\img6.jpg" alt="Kelvine Clarke" className="rounded-lg shadow-xl max-w-full h-auto" />
             </div>
           </div>
         </div>
