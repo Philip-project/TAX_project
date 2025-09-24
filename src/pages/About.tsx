@@ -117,29 +117,31 @@ const About = () => {
 
       {/* Our Story */}
       <section className="py-20 bg-primary-25">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid lg:grid-cols-2 lg:gap-12 items-center">
-      <div>
-        <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">Our Story</h2>
-        <div className="space-y-5 text-gray-700 leading-relaxed lg:text-justify">
-          <p className="text-lg">
-            ProTax by KC & Associates was founded with a simple mission: to provide expert financial guidance that goes beyond traditional accounting services. We focus on making financial decisions simpler and more effective for individuals and businesses.
-          </p>
-          <p className="text-lg">
-            Our team includes seasoned professionals with over a decade of experience in tax filing, planning, forecasting, and business analysis. This background equips us to handle both routine and complex financial challenges with confidence.
-          </p>
-          <p className="text-lg">
-            What sets us apart is our commitment to lasting relationships. We take the time to understand your unique situation, ensuring our advice is practical and aligned with your goals.
-            By combining expertise with personal attention, we strive to be a trusted partner in your financial journey.
-          </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">Our Story</h2>
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <p className="text-lg text-justify">
+                  ProTax by KC & Associates was founded with a simple mission: to provide
+                  expert financial guidance that goes beyond traditional accounting services.
+                </p>
+                <p className="text-lg text-justify">
+                  Our team includes seasoned financial professionals with over a decade of
+                  experience in tax filing, tax planning, financial forecasting, and strategic business analysis.
+                </p>
+                <p className="text-lg text-justify">
+                  What sets us apart is our commitment to building lasting relationships.
+                  We take the time to understand your unique situation and aspirations.
+                </p>
+              </div>
+            </div>
+            <div className="mt-11">
+              <img src="/lovable-uploads/img1.webp" alt="Professional team meeting" className="rounded-lg shadow-xl" />
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="mt-0 lg:mt-11 flex justify-center lg:justify-end">
-        <img src="/lovable-uploads/img1.jpg" alt="Professional team meeting" className="rounded-lg shadow-xl max-w-full h-auto" />
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
         
       <section>
         <div className="py-20 bg-primary-50">
@@ -162,8 +164,8 @@ const About = () => {
               </div>
             </div>
             {/* Right Image */}
-            <div className="mt-0 lg:mt-11 flex justify-center lg:justify-end">
-              <img src="lovable-uploads\img6.jpg" alt="Kelvine Clarke" className="rounded-lg shadow-xl max-w-full h-auto" />
+            <div className="mt-11">
+              <img src="lovable-uploads\img6.webp" alt="Kelvine Clarke" className="rounded-lg shadow-xl" />
             </div>
           </div>
         </div>
@@ -208,7 +210,7 @@ const About = () => {
             <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
               <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
                 <img
-                  src="/lovable-uploads/img2.png"
+                  src="/lovable-uploads/img2.webp"
                   alt="Michael – FP&A Expert"
                   className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
                 />
@@ -234,7 +236,7 @@ const About = () => {
             <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
               <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
                 <img
-                  src="/lovable-uploads/img4.jpg"
+                  src="/lovable-uploads/img4.webp"
                   alt="Nicole – Booking & Project Management Expert"
                   className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
                 />
@@ -252,6 +254,31 @@ const About = () => {
                 </ul>
                 <p className="italic border-t border-indigo-100 pt-4">
                   Whether managing high-profile events or day-to-day operations, Nicole Seymour combines detail with a warm, professional touch.
+                </p>
+              </div>
+            </div>
+            {/* Bertony */}
+            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
+              <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                <img
+                  src="/lovable-uploads/img5.webp"
+                  alt="Bertony Jean-Louis – Business Consultant & Strategic Advisor"
+                  className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
+                />
+              </div>
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Bertony Jean-Louis</h3>
+                <p className="text-gray-700 mb-4 leading-relaxed text-center">
+                  Bertony is a University of Michigan MBA with over a decade of experience spanning investment banking (Goldman Sachs), corporate strategy (DoorDash), and audit (KPMG).
+                </p>
+                <h4 className="font-bold text-indigo-800 mb-3 text-lg">Core Expertise:</h4>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li><strong>Financial Strategy & Analysis:</strong> Transforms complex financial data into actionable insights that drive growth.</li>
+                  <li><strong>Cross-Sector Expertise:</strong> Leverages experience across banking, corporate strategy, and audit to build scalable, efficient operations.</li>
+                  <li><strong>Revenue & Operational Excellence:</strong> Develops strategies that enhance revenue growth while optimizing processes for clients.</li>
+                </ul>
+                <p className="italic border-t border-indigo-100 pt-4">
+                  Known for his client-first approach, he empowers business owners with clarity and confidence to scale successfully.
                 </p>
               </div>
             </div>
