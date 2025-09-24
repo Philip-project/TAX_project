@@ -185,7 +185,7 @@ const About = () => {
             <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
               <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
                 <img
-                  src="/lovable-uploads/img5.jpg"
+                  src="/lovable-uploads/img5.webp"
                   alt="Bertony Jean-Louis – Business Consultant & Strategic Advisor"
                   className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
                 />
@@ -257,7 +257,7 @@ const About = () => {
                 </p>
               </div>
             </div>
-            {/* Bertony */}
+            {/* Bertony
             <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
               <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
                 <img
@@ -281,7 +281,7 @@ const About = () => {
                   Known for his client-first approach, he empowers business owners with clarity and confidence to scale successfully.
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
