@@ -242,7 +242,7 @@ const About = () => {
               <div className="flex-1 flex flex-col">
                 <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Nicole Seymour</h3>
                 <p className="text-gray-700 mb-4 leading-relaxed text-center">
-                  Nicole Seymour is a seasoned booking and project management expert with over 10 years of experience delivering exceptional customer service.
+                  Nicole is an accomplished bookkeeper and project management professional with a decade of experience dedicated to delivering exceptional client service and operational excellence.
                 </p>
                 <h4 className="font-bold text-indigo-800 mb-3 text-lg">What She Brings:</h4>
                 <ul className="list-disc pl-5 space-y-2">
