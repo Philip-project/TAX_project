@@ -314,5 +314,9 @@ const Navigation = () => {
   );
 };
  
+<<<<<<< Updated upstream
 export default Navigation;
  
+=======
+export default Navigation;
+>>>>>>> Stashed changes
