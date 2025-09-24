@@ -189,7 +189,7 @@ const About = () => {
                 />
               </div>
               <div className="flex-1 flex flex-col">
-                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Bertony Jean-Louis,CPA</h3>
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Bertony Jean-Louis, CPA</h3>
                 <p className="text-gray-700 mb-4 leading-relaxed text-center">
                   Bertony is a University of Michigan MBA with over a decade of experience spanning investment banking (Goldman Sachs), corporate strategy (DoorDash), and audit (KPMG).
                 </p>
