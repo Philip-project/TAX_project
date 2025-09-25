@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Globe } from 'lucide-react';
-
+ 
 declare global {
   interface Window {
     google: {
@@ -11,6 +11,7 @@ declare global {
           options: {
             pageLanguage: string;
             autoDisplay?: boolean;
+            includedLanguages?: string;
           },
           elementId: string
         ) => void;
@@ -19,7 +20,7 @@ declare global {
     googleTranslateElementInit?: () => void;
   }
 }
-
+ 
 // CSS to hide all Google Translate UI elements and prevent translation of our selector
 const hideGoogleTranslateCSS = `
   .goog-te-banner-frame,
@@ -59,7 +60,7 @@ const hideGoogleTranslateCSS = `
     translate: none !important;
   }
 `;
-
+ 
 const LanguageDropdown = ({
   languages,
   changeLanguage,
@@ -76,9 +77,9 @@ const LanguageDropdown = ({
     <div className="max-h-60 overflow-y-auto">
       {languages.length > 0 ? (
         languages.map((lang) => (
-          <button 
-            key={lang.code} 
-            onClick={() => changeLanguage(lang.code)} 
+          <button
+            key={lang.code}
+            onClick={() => changeLanguage(lang.code)}
             className={`w-full text-left px-4 py-2 hover:bg-blue-50 flex justify-between items-center ${
               currentLanguage === lang.code ? 'bg-blue-50 text-blue-600' : ''
             }`}
@@ -95,7 +96,7 @@ const LanguageDropdown = ({
     </div>
   </div>
 );
-
+ 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showLanguages, setShowLanguages] = useState(false);
@@ -104,18 +105,18 @@ const Navigation = () => {
   const location = useLocation();
   const desktopLangRef = useRef<HTMLDivElement>(null);
   const mobileLangRef = useRef<HTMLDivElement>(null);
-
+ 
   // Inject CSS to hide Google Translate UI
   useEffect(() => {
     const style = document.createElement('style');
     style.innerHTML = hideGoogleTranslateCSS;
     document.head.appendChild(style);
-    
+   
     return () => {
       document.head.removeChild(style);
     };
   }, []);
-
+ 
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
@@ -123,72 +124,47 @@ const Navigation = () => {
     { name: 'Book Appointment', path: '/booking' },
     { name: 'Contact', path: '/contact' },
   ];
-
+ 
   const googleTranslateElementInit = useCallback(() => {
     if (window.google?.translate) {
       new window.google.translate.TranslateElement(
         {
           pageLanguage: "en",
-          autoDisplay: false
+          autoDisplay: false,
+          // Restrict languages to the desired set
+          includedLanguages: 'en,es,pt,vi,sq'
         },
         "google_translate_element"
       );
-
-      // Add English option manually since Google Translate might not include it
-      const englishOption = {
-        code: 'en',
-        name: 'English'
-      };
-
-      const observer = new MutationObserver(() => {
-        const select = document.querySelector<HTMLSelectElement>('select.goog-te-combo');
-        if (select && select.options.length > 1) {
-          const extractedLangs = Array.from(select.options)
-            .filter(option => option.value)
-            .map(option => ({
-              code: option.value,
-              name: option.text || option.value
-            }));
-          
-          // Combine English with other languages and remove duplicates
-          const allLangs = [englishOption, ...extractedLangs];
-          const uniqueLangs = allLangs.filter((lang, index, self) =>
-            index === self.findIndex((t) => (
-              t.code === lang.code
-            ))
-          );
-          
-          setLanguages(uniqueLangs);
-          observer.disconnect();
-        }
-      });
-
-      const translateElement = document.getElementById('google_translate_element');
-      if (translateElement) {
-        observer.observe(translateElement, {
-          childList: true,
-          subtree: true,
-        });
-      } else {
-        // If Google Translate element doesn't load, still show English
-        setLanguages([englishOption]);
-      }
+ 
+      // Define the fixed set of languages
+      const desiredLanguages = [
+        { code: 'en', name: 'English' },
+        { code: 'es', name: 'Spanish' },
+        { code: 'pt', name: 'Portuguese' },
+        { code: 'vi', name: 'Vietnamese' },
+        { code: 'sq', name: 'Albanian' },
+      ];
+ 
+      // Since the Google Translate element is now hidden, we can just use our fixed list
+      setLanguages(desiredLanguages);
+     
     }
-  }, [setLanguages]);
-
+  }, []);
+ 
   useEffect(() => {
     const addScript = document.createElement("script");
     addScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
     addScript.async = true;
     document.body.appendChild(addScript);
     window.googleTranslateElementInit = googleTranslateElementInit;
-
+ 
     return () => {
       delete window.googleTranslateElementInit;
       document.body.removeChild(addScript);
     };
   }, [googleTranslateElementInit]);
-
+ 
   const changeLanguage = (langCode: string) => {
     const select = document.querySelector<HTMLSelectElement>('.goog-te-combo');
     if (select) {
@@ -198,7 +174,7 @@ const Navigation = () => {
     }
     setShowLanguages(false);
   };
-
+ 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -208,7 +184,7 @@ const Navigation = () => {
         setShowLanguages(false);
       }
     };
-
+ 
     if (showLanguages) {
       document.addEventListener('mousedown', handleClickOutside);
     }
@@ -216,7 +192,7 @@ const Navigation = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [showLanguages]);
-
+ 
   return (
     <nav className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -224,9 +200,9 @@ const Navigation = () => {
           {/* Logo and Branding */}
           <div className="flex items-center ml-0">
             <Link to="/" className="flex items-center space-x-3">
-              <img 
-                src="/lovable-uploads/bce15a11-fe78-49dc-8d44-1339cd299a99.png" 
-                alt="ProTax by KC & Associates Logo" 
+              <img
+                src="/lovable-uploads/bce15a11-fe78-49dc-8d44-1339cd299a99.png"
+                alt="ProTax by KC & Associates Logo"
                 className="h-12 w-auto"
               />
               <div>
@@ -235,7 +211,7 @@ const Navigation = () => {
               </div>
             </Link>
           </div>
-
+ 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
@@ -252,11 +228,11 @@ const Navigation = () => {
                 }`}></span>
               </Link>
             ))}
-
+ 
 {/* Language Selector */}
             <div className="relative mr-0 no-translate language-selector" ref={desktopLangRef}>
-              <button 
-                onClick={() => setShowLanguages(!showLanguages)} 
+              <button
+                onClick={() => setShowLanguages(!showLanguages)}
                 className="flex items-center p-2 hover:bg-gray-100 rounded-full -mr-1"
                 aria-label="Select language"
               >
@@ -266,15 +242,15 @@ const Navigation = () => {
                 </span>
               </button>
               {showLanguages && (
-                <LanguageDropdown 
-                  languages={languages} 
+                <LanguageDropdown
+                  languages={languages}
                   changeLanguage={changeLanguage}
                   currentLanguage={currentLanguage}
                 />
               )}
             </div>
           </div>
-
+ 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center">
             <div className="relative mr-1 no-translate language-selector" ref={mobileLangRef}>
@@ -289,8 +265,8 @@ const Navigation = () => {
                 </span>
               </button>
               {showLanguages && (
-                <LanguageDropdown 
-                  languages={languages} 
+                <LanguageDropdown
+                  languages={languages}
                   changeLanguage={changeLanguage}
                   currentLanguage={currentLanguage}
                 />
@@ -305,7 +281,7 @@ const Navigation = () => {
             </button>
           </div>
         </div>
-
+ 
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden">
@@ -331,11 +307,12 @@ const Navigation = () => {
           </div>
         )}
       </div>
-      
+     
       {/* Hidden Google Translate element */}
       <div id="google_translate_element" className="hidden">Translate</div>
     </nav>
   );
 };
-
+ 
 export default Navigation;
+ 

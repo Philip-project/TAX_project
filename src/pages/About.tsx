@@ -51,12 +51,6 @@ const About = () => {
 
   const handleBookClick = () => {
     navigate('/booking#booking-section');
-    setTimeout(() => {
-      const element = document.querySelector('#booking-section .flex.justify-center button');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }, 100);
   };
 
   const handleContactClick = () => {
@@ -122,7 +116,7 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 bg-primary-50">
+      <section className="py-20 bg-primary-25">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -143,41 +137,93 @@ const About = () => {
               </div>
             </div>
             <div className="mt-11">
-              <img src="/lovable-uploads/img1.jpg" alt="Professional team meeting" className="rounded-lg shadow-xl" />
+              <img src="/lovable-uploads/img1.webp" alt="Professional team meeting" className="rounded-lg shadow-xl" />
             </div>
           </div>
         </div>
       </section>
+        
+      <section>
+        <div className="py-20 bg-primary-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-8">
+          <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">Kelvine Clarke</h2>
+          <div className="grid lg:grid-cols-2 lg:gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              {/* <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">Kelvine Clarke</h2> */}
+              <div className="space-y-5 text-gray-700 leading-relaxed lg:text-justify">
+                <p className="text-lg">
+                  Kelvine Clarke is a results-driven CPA and finance leader with over a decade of experience delivering strategic financial management and operational improvements for organizations, including publicly traded companies.
+                </p>
+                <p className="text-lg">
+                  His core expertise includes financial analysis, internal and external reporting, ERP system implementation, and complex project management. He is adept at translating technical data into actionable insights for executive leadership and collaborating across all organizational levels to achieve strategic objectives.
+                </p>
+                <p className="text-lg">
+                  His experience includes serving high-profile clients such as Bloomberg, Spotify, CVS, and Walgreens.
+                </p>
+              </div>
+            </div>
+            {/* Right Image */}
+            <div className="mt-11">
+              <img src="lovable-uploads\img6.webp" alt="Kelvine Clarke" className="rounded-lg shadow-xl" />
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+      
+
 
       {/* Our Team */}
-
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">
             Our Team
           </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">            
+            {/* Bertony */}
+            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
+              <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                <img
+                  src="/lovable-uploads/img5.webp"
+                  alt="Bertony Jean-Louis – Business Consultant & Strategic Advisor"
+                  className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
+                />
+              </div>
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Bertony Jean-Louis, CPA</h3>
+                <p className="text-gray-700 mb-4 leading-relaxed text-center">
+                  Bertony is a University of Michigan MBA with over a decade of experience spanning investment banking (Goldman Sachs), corporate strategy (DoorDash), and audit (KPMG).
+                </p>
+                <h4 className="font-bold text-indigo-800 mb-3 text-lg">Core Expertise:</h4>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li><strong>Financial Strategy & Analysis:</strong> Transforms complex financial data into actionable insights that drive growth.</li>
+                  <li><strong>Cross-Sector Expertise:</strong> Leverages experience across banking, corporate strategy, and audit to build scalable, efficient operations.</li>
+                  <li><strong>Revenue & Operational Excellence:</strong> Develops strategies that enhance revenue growth while optimizing processes for clients.</li>
+                </ul>
+                <p className="italic border-t border-indigo-100 pt-4">
+                  Known for his client-first approach, he empowers business owners with clarity and confidence to scale successfully.
+                </p>
+              </div>
+            </div>
             {/* Michael */}
             <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
               <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
                 <img
-                  src="/lovable-uploads/img2.png"
+                  src="/lovable-uploads/img2.webp"
                   alt="Michael – FP&A Expert"
                   className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
                 />
-
               </div>
               <div className="flex-1 flex flex-col">
-                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Michael</h3>
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Michael Kilcourse</h3>
                 <p className="text-gray-700 mb-4 leading-relaxed text-center">
-                  Michael is an FP&A professional with over a decade of experience driving financial strategy across startups, growth-stage, and large enterprises.
+                  Michael Kilcourse is an FP&A professional with over a decade of experience driving financial strategy across startups, growth-stage, and large enterprises.
                 </p>
                 <h4 className="font-bold text-indigo-800 mb-3 text-lg">Key Strengths:</h4>
                 <ul className="list-disc pl-5 space-y-2">
                   <li><strong>Financial Modeling & Forecasting:</strong> Built scalable FP&A systems.</li>
-                  <li><strong>Technical Proficiency:</strong> Excel, Power BI, Oracle, Hyperion.</li>
+                  {/* <li><strong>Technical Proficiency:</strong> Excel, Power BI, Oracle, Hyperion.</li> */}
                   <li><strong>Business Collaboration:</strong> Partnered cross-functionally to optimize profitability.</li>
                   <li><strong>Emerging Leadership:</strong> Led high-impact initiatives with mentorship.</li>
                 </ul>
@@ -186,64 +232,60 @@ const About = () => {
                 </p>
               </div>
             </div>
-
             {/* Nicole */}
             <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
               <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
                 <img
-                  src="/lovable-uploads/img4.jpg"
+                  src="/lovable-uploads/img4.webp"
                   alt="Nicole – Booking & Project Management Expert"
                   className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
                 />
-
               </div>
               <div className="flex-1 flex flex-col">
-                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Nicole</h3>
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Nicole Seymour</h3>
                 <p className="text-gray-700 mb-4 leading-relaxed text-center">
-                  Nicole is a seasoned booking and project management expert with over 10 years of experience delivering exceptional customer service.
+                  Nicole is an accomplished bookkeeper and project management professional with a decade of experience dedicated to delivering exceptional client service and operational excellence.
                 </p>
                 <h4 className="font-bold text-indigo-800 mb-3 text-lg">What She Brings:</h4>
                 <ul className="list-disc pl-5 space-y-2">
-                  <li><strong>Efficient Booking & Scheduling:</strong> Streamlines appointments, travel, and logistics.</li>
+                  <li><strong>Efficient Bookingkeeping & Scheduling:</strong> Streamlines appointments, travel, and logistics.</li>
                   <li><strong>Project Management Excellence:</strong> Keeps complex initiatives on track.</li>
                   <li><strong>Client-Centric Mindset:</strong> Builds lasting relationships by anticipating needs.</li>
                 </ul>
                 <p className="italic border-t border-indigo-100 pt-4">
-                  Whether managing high-profile events or day-to-day operations, Nicole combines detail with a warm, professional touch.
+                  Whether managing high-profile events or day-to-day operations, Nicole Seymour combines detail with a warm, professional touch.
                 </p>
               </div>
             </div>
-
-            {/* Bertony */}
+            {/* Bertony
             <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
               <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
                 <img
-                  src="/lovable-uploads/img5.jpg"
+                  src="/lovable-uploads/img5.webp"
                   alt="Bertony Jean-Louis – Business Consultant & Strategic Advisor"
                   className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
                 />
-
               </div>
               <div className="flex-1 flex flex-col">
                 <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Bertony Jean-Louis</h3>
                 <p className="text-gray-700 mb-4 leading-relaxed text-center">
-                  With over a decade of experience in business operations, strategy, and accounting, Bertony helps clients translate complex financial data into growth strategies.
+                  Bertony is a University of Michigan MBA with over a decade of experience spanning investment banking (Goldman Sachs), corporate strategy (DoorDash), and audit (KPMG).
                 </p>
                 <h4 className="font-bold text-indigo-800 mb-3 text-lg">Core Expertise:</h4>
                 <ul className="list-disc pl-5 space-y-2">
-                  <li><strong>Strategic Advisory:</strong> Guides entrepreneurs and startups through key decisions.</li>
-                  <li><strong>Operations & Process Improvement:</strong> Streamlines processes and enhances journeys.</li>
-                  <li><strong>Financial Planning:</strong> Expertise in pricing, budgeting, and forecasting.</li>
+                  <li><strong>Financial Strategy & Analysis:</strong> Transforms complex financial data into actionable insights that drive growth.</li>
+                  <li><strong>Cross-Sector Expertise:</strong> Leverages experience across banking, corporate strategy, and audit to build scalable, efficient operations.</li>
+                  <li><strong>Revenue & Operational Excellence:</strong> Develops strategies that enhance revenue growth while optimizing processes for clients.</li>
                 </ul>
                 <p className="italic border-t border-indigo-100 pt-4">
                   Known for his client-first approach, he empowers business owners with clarity and confidence to scale successfully.
                 </p>
               </div>
-            </div>
-
+            </div> */}
           </div>
         </div>
       </section>
+
 
       {/* Our Values */}
       <section className="py-20 bg-primary-50">
@@ -252,7 +294,6 @@ const About = () => {
             <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">Our Values</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">The principles that guide everything we do and define our commitment to excellence.</p>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <Card key={index} className="hover:shadow-xl transition-shadow duration-300 border-0 shadow-lg">
@@ -269,6 +310,7 @@ const About = () => {
         </div>
       </section>
 
+
       {/* Why Choose Us */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -276,7 +318,6 @@ const About = () => {
             <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">Why Choose ProTax by KC?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">We go beyond compliance to provide the strategic insights and clarity businesses need to thrive.</p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {services.map((service, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
@@ -290,12 +331,11 @@ const About = () => {
               </Card>
             ))}
           </div>
-
           <Card className="bg-gradient-to-r from-primary-900 to-secondary-800 text-white border-0">
-            <CardContent className="p-12 text-center">
+            <CardContent className="py-12 px-4 sm:px-6 lg:px-8 text-center">
               <h3 className="font-heading font-bold text-3xl mb-6">Our Mission</h3>
-              <p className="text-xl leading-relaxed max-w-4xl mx-auto">
-                We empower organizations to maximize efficiency and achieve sustainable growth
+              <p className="text-xl leading-relaxed max-w-4xl mx-auto italic">
+               We empower organizations to maximize efficiency and achieve sustainable growth
                 by streamlining financial processes, enhancing collaboration,
                 and implementing financial tools. We give our clients the freedom to focus on
                 what they do best—running their business—while we manage their financial complexities.
@@ -304,6 +344,7 @@ const About = () => {
           </Card>
         </div>
       </section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-gray-50">
@@ -320,7 +361,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );

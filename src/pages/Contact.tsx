@@ -12,9 +12,6 @@ import { useToast } from '@/hooks/use-toast';
 const Contact = () => {
   const location = useLocation();
   const contactFormRef = useRef<HTMLDivElement>(null);
-   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -209,7 +206,7 @@ const Contact = () => {
           </div>
 
           {/* Business Hours & Location */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-20">
+          <div className="grid justify-center mb-20">
             <Card className="shadow-xl border-0">
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
@@ -240,7 +237,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-xl border-0">
+            {/* <Card className="shadow-xl border-0">
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
                   <MapPin className="text-primary-900 mr-3" size={32} />
@@ -273,7 +270,7 @@ const Contact = () => {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </Card> */}
           </div>
         </div>
       </section>
@@ -298,7 +295,7 @@ const Contact = () => {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Full Name *
@@ -329,7 +326,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number

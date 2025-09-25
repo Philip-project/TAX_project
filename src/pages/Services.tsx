@@ -17,9 +17,6 @@ const Services = () => {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    } else {
-      // If no hash, scroll to top of the page
-      window.scrollTo(0, 0);
     }
   }, [location]);
   const detailedServices = [
@@ -164,9 +161,9 @@ const Services = () => {
               }
 
               return (
-                <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
+                <div key={index} id={serviceId} className="scroll-mt-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   {/* Service Details always on the left */}
-                  <div id={serviceId} className="scroll-mt-24">
+                  <div>
                     <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                       <service.icon className="text-primary-900" size={32} />
                     </div>
@@ -188,10 +185,7 @@ const Services = () => {
                     </div>
 
                     <Button
-                      onClick={() => {
-                        window.scrollTo(0, 0);
-                        navigate('/booking');
-                      }}
+                      onClick={() => navigate('/booking#booking-section')}
                       className="bg-primary-900 text-white transition-all duration-300 transform hover:bg-primary-800 hover:scale-105 hover:shadow-lg"
                     >
                       Get Started
@@ -239,10 +233,7 @@ const Services = () => {
             <Button
               size="lg"
               className="bg-primary-900 hover:bg-primary-800 text-white"
-              onClick={() => {
-                window.scrollTo(0, 0);
-                navigate('/booking');
-              }}
+              onClick={() => navigate('/booking#booking-section')}
             >
               Schedule Free Consultation
             </Button>
@@ -250,9 +241,7 @@ const Services = () => {
               size="lg"
               variant="outline"
               className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white"
-              onClick={() => {
-                navigate('/contact#contact-form');
-              }}
+              onClick={() => navigate('/contact#contact-form')}
             >
               Contact Us
             </Button>
