@@ -18,9 +18,9 @@ const Booking = () => {
     if (location.hash === '#booking-section' && bookButtonRef.current) {
       // Small delay to ensure the page is fully rendered
       const timer = setTimeout(() => {
-        bookButtonRef.current?.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'center' 
+        bookButtonRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
         });
       }, 100);
       return () => clearTimeout(timer);
@@ -75,7 +75,7 @@ const Booking = () => {
               <CardHeader className="pb-3">
                 <CardTitle className="text-xl text-primary-900 flex items-center justify-center">
                   <Calendar className="text-secondary-600 mr-2" size={20} />
-                  What to Expect
+                  <h2 className="font-semibold text-xl text-primary-900 flex items-center justify-center">What to Expect</h2>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 px-4 pb-4">

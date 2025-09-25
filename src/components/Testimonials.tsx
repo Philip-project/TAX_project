@@ -61,7 +61,7 @@ const Testimonials = () => {
                     className="w-12 h-12 rounded-full mr-4 object-cover"
                   />
                   <div>
-                    <h4 className="font-semibold text-primary-900">{testimonial.name}</h4>
+                    <h3 className="font-semibold text-primary-900">{testimonial.name}</h3>
                     <p className="text-sm text-gray-600">{testimonial.company}</p>
                   </div>
                 </div>

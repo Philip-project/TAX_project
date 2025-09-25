@@ -1,78 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProTax by KC & Associates</title>
-    <meta
-      name="description"
-      content="Professional CPA firm offering expert tax filing, accounting, and CFO services for businesses and individuals in Kansas City"
-    />
-    <meta name="author" content="ProTax by KC & Associates" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProTax by KC & Associates</title>
+  <meta name="description"
+    content="Professional CPA firm offering expert tax filing, accounting, and CFO services for businesses and individuals in Kansas City" />
+  <meta name="author" content="ProTax by KC & Associates" />
 
-    <meta property="og:title" content="ProTax by KC & Associates" />
-    <meta
-      property="og:description"
-      content="Expert Tax & Accounting Services"
-    />
-    <meta property="og:type" content="website" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@protaxbykc" />
-  
+  <meta property="og:title" content="ProTax by KC & Associates" />
+  <meta property="og:description" content="Expert Tax & Accounting Services" />
+  <meta property="og:type" content="website" />
 
-    <!-- Chatbot Style -->
-    <style>
-      df-messenger {
-        --df-messenger-button-icon: #3c9d31;
-        --df-messenger-titlebar-background: #e5e8eb;
-        --df-messenger-titlebar-text-color: #000000;
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@protaxbykc" />
 
-        --df-messenger-chat-window-width: 350px;
-        --df-messenger-chat-window-height: 500px;
 
-        --df-messenger-chat-background: #ffffff; /* Ensures background is white */
-        --df-messenger-font-color: #000000;
+  <!-- Chatbot Style -->
+  <style>
+    df-messenger {
+      --df-messenger-button-icon: #3c9d31;
+      --df-messenger-titlebar-background: #e5e8eb;
+      --df-messenger-titlebar-text-color: #000000;
 
-        --df-messenger-user-message: #f1f1f1;
-        --df-messenger-user-message-text-color: #000000;
+      --df-messenger-chat-window-width: 350px;
+      --df-messenger-chat-window-height: 500px;
 
-        --df-messenger-bot-message: #f1f1f1;
-        --df-messenger-bot-message-text-color: #000000;
+      --df-messenger-chat-background: #ffffff;
+      /* Ensures background is white */
+      --df-messenger-font-color: #000000;
 
-        --df-messenger-input-box-color: #ffffff;
-        --df-messenger-input-placeholder-color: #888888;
+      --df-messenger-user-message: #f1f1f1;
+      --df-messenger-user-message-text-color: #000000;
 
-        --df-messenger-send-icon: #0c1323;
-        --df-messenger-titlebar-close-icon: rgb(241, 18, 200);
+      --df-messenger-bot-message: #f1f1f1;
+      --df-messenger-bot-message-text-color: #000000;
 
-        --df-messenger-button-titlebar-color: #0c1323;
-        --df-messenger-button-border-radius: 20px;
-      }
-    </style>
-  </head>
+      --df-messenger-input-box-color: #ffffff;
+      --df-messenger-input-placeholder-color: #888888;
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+      --df-messenger-send-icon: #0c1323;
+      --df-messenger-titlebar-close-icon: rgb(241, 18, 200);
 
-    <!-- Dialogflow Messenger SDK -->
-  \<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
-chat-icon="/assets/svg/ProTaxBot.svg"
-      alt="Chatbot icon"
-  intent="WELCOME"
-  chat-title="ProTax"
-  agent-id="ada221d3-104c-4f1f-ac02-af406641f8c5"
-  language-code="en"
-></df-messenger>
-  </body>
+      --df-messenger-button-titlebar-color: #0c1323;
+      --df-messenger-button-border-radius: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Dialogflow Messenger SDK -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const script = document.createElement('script');
+      script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+      script.async = true;
+      document.body.appendChild(script);
+
+      // After a delay, set alt attribute for the chat icon
+      script.onload = () => {
+        const setAlt = () => {
+          const chatIconImg = document.querySelector('df-messenger img.df-chat-icon');
+          if (chatIconImg) {
+            chatIconImg.setAttribute('alt', 'ProTax Chatbot');
+          } else {
+            // Retry until the image appears
+            setTimeout(setAlt, 500);
+          }
+        };
+        setAlt();
+      };
+    });
+  </script>
+
+  <df-messenger
+    chat-icon="/assets/svg/ProTaxBot.svg"
+    aria-label="ProTax Chatbot"
+    intent="WELCOME"
+    chat-title="ProTax"
+    agent-id="ada221d3-104c-4f1f-ac02-af406641f8c5"
+    language-code="en"
+  ></df-messenger>
+</body>
+
+
+
+
+
 </html>

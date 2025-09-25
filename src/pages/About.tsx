@@ -16,7 +16,8 @@ function TeamCard({ img, name, intro, children }: { img: string; name: string; i
       {/* Image */}
       <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
         <img
-          src={img}
+          src={img}     
+          
           alt={name}
           className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
         />
@@ -257,31 +258,7 @@ const About = () => {
                 </p>
               </div>
             </div>
-            {/* Bertony
-            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
-              <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
-                <img
-                  src="/lovable-uploads/img5.webp"
-                  alt="Bertony Jean-Louis – Business Consultant & Strategic Advisor"
-                  className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
-                />
-              </div>
-              <div className="flex-1 flex flex-col">
-                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Bertony Jean-Louis</h3>
-                <p className="text-gray-700 mb-4 leading-relaxed text-center">
-                  Bertony is a University of Michigan MBA with over a decade of experience spanning investment banking (Goldman Sachs), corporate strategy (DoorDash), and audit (KPMG).
-                </p>
-                <h4 className="font-bold text-indigo-800 mb-3 text-lg">Core Expertise:</h4>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li><strong>Financial Strategy & Analysis:</strong> Transforms complex financial data into actionable insights that drive growth.</li>
-                  <li><strong>Cross-Sector Expertise:</strong> Leverages experience across banking, corporate strategy, and audit to build scalable, efficient operations.</li>
-                  <li><strong>Revenue & Operational Excellence:</strong> Develops strategies that enhance revenue growth while optimizing processes for clients.</li>
-                </ul>
-                <p className="italic border-t border-indigo-100 pt-4">
-                  Known for his client-first approach, he empowers business owners with clarity and confidence to scale successfully.
-                </p>
-              </div>
-            </div> */}
+           
           </div>
         </div>
       </section>

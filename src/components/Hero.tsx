@@ -62,16 +62,16 @@ const Hero = () => {
             <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-10 shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-teal-500/5 rounded-3xl"></div>
               <div className="relative">
-                <h3 className="font-heading font-semibold text-2xl text-white mb-6">
+                <h2 className="font-heading font-semibold text-2xl text-white mb-6">
                   Transform Your Financial Future
-                </h3>
+                </h2>
                 <div className="space-y-6">
                   <div className="flex items-center text-slate-200">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-4">
                       <Shield size={20} />
                     </div>
                     <div>
-                      <h4 className="font-semibold">IRS Protection</h4>
+                      <h3 className="font-semibold">IRS Protection</h3>
                       <p className="text-sm text-slate-400">Expert audit defense and compliance</p>
                     </div>
                   </div>
@@ -80,7 +80,7 @@ const Hero = () => {
                       <Calculator size={20} />
                     </div>
                     <div>
-                      <h4 className="font-semibold">Strategic Planning</h4>
+                      <h3 className="font-semibold">Strategic Planning</h3>
                       <p className="text-sm text-slate-400">Maximize savings and growth</p>
                     </div>
                   </div>
@@ -89,7 +89,7 @@ const Hero = () => {
                       <TrendingUp size={20} />
                     </div>
                     <div>
-                      <h4 className="font-semibold">Business Growth</h4>
+                      <h3 className="font-semibold">Business Growth</h3>
                       <p className="text-sm text-slate-400">CFO services for scaling up</p>
                     </div>
                   </div>
