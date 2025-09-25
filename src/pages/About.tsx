@@ -1,13 +1,74 @@
-
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 import { Target, Users, Award, CheckCircle, Calendar, TrendingUp, Shield } from 'lucide-react';
 
+
+// ✅ Reusable TeamCard with dropdown
+function TeamCard({ img, name, intro, children }: { img: string; name: string; intro: string; children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 flex flex-col items-start gap-6 group border border-indigo-100 hover:border-indigo-200 h-full">
+      {/* Image */}
+      <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
+        <img
+          src={img}
+          alt={name}
+          className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="flex-1 flex flex-col w-full">
+        <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">{name}</h3>
+        <p className="text-gray-700 mb-4 leading-relaxed text-center">{intro}</p>
+
+        {/* Toggle button */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="text-indigo-700 font-semibold flex items-center justify-center gap-2 hover:text-indigo-900 transition"
+        >
+          {open ? "Read Less ▲" : "Read More ▼"}
+        </button>
+
+        {/* Hidden/Shown content */}
+        {open && (
+          <div className="mt-4 border-t border-indigo-100 pt-4 text-sm text-gray-700 space-y-4">
+            {children}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 const About = () => {
+  const navigate = useNavigate();
+
+  const handleBookClick = () => {
+    navigate('/booking#booking-section');
+    setTimeout(() => {
+      const element = document.querySelector('#booking-section .flex.justify-center button');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100);
+  };
+
+  const handleContactClick = () => {
+    navigate('/contact#contact-form');
+    setTimeout(() => {
+      const element = document.getElementById('contact-form');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
+
   const stats = [
     { number: '10+', label: 'Years Experience' },
     { number: '500+', label: 'Clients Served' },
@@ -16,44 +77,16 @@ const About = () => {
   ];
 
   const values = [
-    {
-      icon: Target,
-      title: 'Strategic Focus',
-      description: 'We go beyond compliance to provide strategic insights that drive business success and sustainable growth.'
-    },
-    {
-      icon: Users,
-      title: 'Expert Team',
-      description: 'Our seasoned financial professionals bring over a decade of experience across diverse industries.'
-    },
-    {
-      icon: CheckCircle,
-      title: 'Trusted Partnership',
-      description: 'We give clients the freedom to focus on their business while we manage financial complexities.'
-    },
-    {
-      icon: Award,
-      title: 'Proven Results',
-      description: 'Helping businesses optimize budgets, improve reporting, and make data-driven decisions with confidence.'
-    }
+    { icon: Target, title: 'Strategic Focus', description: 'We go beyond compliance to provide strategic insights that drive business success and sustainable growth.' },
+    { icon: Users, title: 'Expert Team', description: 'Our seasoned financial professionals bring over a decade of experience across diverse industries.' },
+    { icon: CheckCircle, title: 'Trusted Partnership', description: 'We give clients the freedom to focus on their business while we manage financial complexities.' },
+    { icon: Award, title: 'Proven Results', description: 'Helping businesses optimize budgets, improve reporting, and make data-driven decisions with confidence.' }
   ];
 
   const services = [
-    {
-      icon: Calendar,
-      title: 'Year-Round Support',
-      description: 'We provide continuous support throughout the year, not just during tax season.'
-    },
-    {
-      icon: TrendingUp,
-      title: 'Growth-Oriented',
-      description: 'Our strategies are designed to support and accelerate your business growth.'
-    },
-    {
-      icon: Shield,
-      title: 'Risk Management',
-      description: 'We help identify and mitigate financial risks to protect your business.'
-    }
+    { icon: Calendar, title: 'Year-Round Support', description: 'We provide continuous support throughout the year, not just during tax season.' },
+    { icon: TrendingUp, title: 'Growth-Oriented', description: 'Our strategies are designed to support and accelerate your business growth.' },
+    { icon: Shield, title: 'Risk Management', description: 'We help identify and mitigate financial risks to protect your business.' }
   ];
 
   return (
@@ -89,127 +122,135 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-primary-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">
-                Our Story
-              </h2>
+              <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">Our Story</h2>
               <div className="space-y-6 text-gray-700 leading-relaxed">
                 <p className="text-lg text-justify">
                   ProTax by KC & Associates was founded with a simple mission: to provide
                   expert financial guidance that goes beyond traditional accounting services.
-                  We believe that every business and individual deserves access to strategic
-                  financial insights that drive real results.
                 </p>
                 <p className="text-lg text-justify">
                   Our team includes seasoned financial professionals with over a decade of
-                  experience in tax filing, tax planning, financial forecasting, cash flow
-                  and strategic business analysis across diverse industries. We've helped
-                  hundreds of clients navigate complex financial challenges and achieve
-                  their goals.
+                  experience in tax filing, tax planning, financial forecasting, and strategic business analysis.
                 </p>
                 <p className="text-lg text-justify">
                   What sets us apart is our commitment to building lasting relationships.
-                  We take the time to understand your unique situation, challenges, and
-                  aspirations. This personalized approach allows us to deliver tailored
-                  solutions that truly make a difference.
+                  We take the time to understand your unique situation and aspirations.
                 </p>
               </div>
             </div>
-            <div>
-              <img
-                src="/lovable-uploads/img1.svg"
-                alt="Professional team meeting"
-                className="rounded-lg shadow-xl"
-              />
+            <div className="mt-11">
+              <img src="/lovable-uploads/img1.jpg" alt="Professional team meeting" className="rounded-lg shadow-xl" />
             </div>
           </div>
         </div>
       </section>
+
       {/* Our Team */}
-<section className="py-20 bg-gray-50">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">
-      Our Team
-    </h2>
-    <div className="grid md:grid-cols-2 gap-8">
 
-      {/* Michael's Card */}
-      <div className="bg-indigo-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 flex items-center gap-6 group">
-        <div className="flex-shrink-0 w-28 h-28 overflow-hidden rounded-full">
-          <img
-            src="/lovable-uploads/img2.png"
-            alt="Michael – FP&A Expert"
-            className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
-          />
-        </div>
-        <div>
-          <h3 className="text-2xl font-semibold text-primary-900 mb-2">Michael</h3>
-          <p className="text-gray-700 mb-4">
-            FP&A professional with over a decade of experience driving financial strategy across startups, growth-stage, and large enterprises in CPG, pharmaceuticals, and market research. Holds a BS in Economics from UConn.
-          </p>
-          <h4 className="font-semibold mb-2">Key Strengths:</h4>
-          <div className="flex flex-wrap gap-2 mb-4 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-            <span className="bg-indigo-200 text-indigo-900 px-3 py-1 rounded-full text-sm">Financial Modeling & Forecasting</span>
-            <span className="bg-indigo-200 text-indigo-900 px-3 py-1 rounded-full text-sm">Technical Proficiency</span>
-            <span className="bg-indigo-200 text-indigo-900 px-3 py-1 rounded-full text-sm">Business Collaboration</span>
-            <span className="bg-indigo-200 text-indigo-900 px-3 py-1 rounded-full text-sm">Emerging Leadership</span>
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-4xl font-bold text-primary-900 mb-12 text-center">
+            Our Team
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {/* Michael */}
+            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
+              <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                <img
+                  src="/lovable-uploads/img2.png"
+                  alt="Michael – FP&A Expert"
+                  className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
+                />
+
+              </div>
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Michael</h3>
+                <p className="text-gray-700 mb-4 leading-relaxed text-center">
+                  Michael is an FP&A professional with over a decade of experience driving financial strategy across startups, growth-stage, and large enterprises.
+                </p>
+                <h4 className="font-bold text-indigo-800 mb-3 text-lg">Key Strengths:</h4>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li><strong>Financial Modeling & Forecasting:</strong> Built scalable FP&A systems.</li>
+                  <li><strong>Technical Proficiency:</strong> Excel, Power BI, Oracle, Hyperion.</li>
+                  <li><strong>Business Collaboration:</strong> Partnered cross-functionally to optimize profitability.</li>
+                  <li><strong>Emerging Leadership:</strong> Led high-impact initiatives with mentorship.</li>
+                </ul>
+                <p className="italic border-t border-indigo-100 pt-4">
+                  His career spans diverse industries, including hospitality, advertising, PR, and manufacturing.
+                </p>
+              </div>
+            </div>
+
+            {/* Nicole */}
+            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
+              <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                <img
+                  src="/lovable-uploads/img4.jpg"
+                  alt="Nicole – Booking & Project Management Expert"
+                  className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
+                />
+
+              </div>
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Nicole</h3>
+                <p className="text-gray-700 mb-4 leading-relaxed text-center">
+                  Nicole is a seasoned booking and project management expert with over 10 years of experience delivering exceptional customer service.
+                </p>
+                <h4 className="font-bold text-indigo-800 mb-3 text-lg">What She Brings:</h4>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li><strong>Efficient Booking & Scheduling:</strong> Streamlines appointments, travel, and logistics.</li>
+                  <li><strong>Project Management Excellence:</strong> Keeps complex initiatives on track.</li>
+                  <li><strong>Client-Centric Mindset:</strong> Builds lasting relationships by anticipating needs.</li>
+                </ul>
+                <p className="italic border-t border-indigo-100 pt-4">
+                  Whether managing high-profile events or day-to-day operations, Nicole combines detail with a warm, professional touch.
+                </p>
+              </div>
+            </div>
+
+            {/* Bertony */}
+            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-start gap-8 border border-indigo-100 hover:border-indigo-200 h-full">
+              <div className="flex-shrink-0 w-32 h-32 mx-auto overflow-hidden rounded-full border-4 border-white shadow-md group-hover:border-indigo-100 transition-all duration-300">
+                <img
+                  src="/lovable-uploads/img5.jpg"
+                  alt="Bertony Jean-Louis – Business Consultant & Strategic Advisor"
+                  className="w-full h-full object-cover rounded-full transform transition duration-500 hover:scale-110 hover:shadow-2xl"
+                />
+
+              </div>
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-2xl font-bold text-indigo-900 mb-2 text-center">Bertony Jean-Louis</h3>
+                <p className="text-gray-700 mb-4 leading-relaxed text-center">
+                  With over a decade of experience in business operations, strategy, and accounting, Bertony helps clients translate complex financial data into growth strategies.
+                </p>
+                <h4 className="font-bold text-indigo-800 mb-3 text-lg">Core Expertise:</h4>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li><strong>Strategic Advisory:</strong> Guides entrepreneurs and startups through key decisions.</li>
+                  <li><strong>Operations & Process Improvement:</strong> Streamlines processes and enhances journeys.</li>
+                  <li><strong>Financial Planning:</strong> Expertise in pricing, budgeting, and forecasting.</li>
+                </ul>
+                <p className="italic border-t border-indigo-100 pt-4">
+                  Known for his client-first approach, he empowers business owners with clarity and confidence to scale successfully.
+                </p>
+              </div>
+            </div>
+
           </div>
-          <p className="text-gray-700">
-            His career spans hospitality, advertising, PR, and manufacturing—equipping him with adaptable, results-focused expertise.
-          </p>
         </div>
-      </div>
-
-      {/* Nikki's Card */}
-      <div className="bg-indigo-50 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 flex items-center gap-6 group">
-        <div className="flex-shrink-0 w-28 h-28 overflow-hidden rounded-full">
-          <img
-            src="/lovable-uploads/img3.png"
-            alt="Nikki – Booking & Project Management Expert"
-            className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
-          />
-        </div>
-        <div>
-          <h3 className="text-2xl font-semibold text-primary-900 mb-2">Nikki</h3>
-          <p className="text-gray-700 mb-4">
-            Nikki is a seasoned booking and project management expert with over 10 years of experience delivering exceptional customer service across diverse industries. Known for her meticulous organization and client-first approach, she ensures seamless coordination from start to finish.
-          </p>
-          <h4 className="font-semibold mb-2">What She Brings:</h4>
-          <div className="flex flex-wrap gap-2 mb-4 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-            <span className="bg-indigo-200 text-indigo-900 px-3 py-1 rounded-full text-sm">Efficient Booking & Scheduling</span>
-            <span className="bg-indigo-200 text-indigo-900 px-3 py-1 rounded-full text-sm">Project Management Excellence</span>
-            <span className="bg-indigo-200 text-indigo-900 px-3 py-1 rounded-full text-sm">Client-Centric Mindset</span>
-          </div>
-          <p className="text-gray-700">
-            Whether managing high-profile events or day-to-day operations, Nikki combines sharp attention to detail with a warm, professional touch.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
+      </section>
 
       {/* Our Values */}
       <section className="py-20 bg-primary-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">
-              Our Values
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The principles that guide everything we do and define our commitment to excellence.
-            </p>
+            <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">Our Values</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">The principles that guide everything we do and define our commitment to excellence.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -232,13 +273,8 @@ const About = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">
-              Why Choose ProTax by KC?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We go beyond compliance to provide the strategic insights and clarity
-              businesses need to thrive in today's competitive landscape.
-            </p>
+            <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">Why Choose ProTax by KC?</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">We go beyond compliance to provide the strategic insights and clarity businesses need to thrive.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -248,22 +284,19 @@ const About = () => {
                   <div className="bg-secondary-100 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
                     <service.icon className="text-secondary-600" size={24} />
                   </div>
-                  <h3 className="font-semibold text-lg text-primary-900 mb-2">
-                    {service.title}
-                  </h3>
+                  <h3 className="font-semibold text-lg text-primary-900 mb-2">{service.title}</h3>
                   <p className="text-gray-600">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          {/* Mission Statement */}
           <Card className="bg-gradient-to-r from-primary-900 to-secondary-800 text-white border-0">
             <CardContent className="p-12 text-center">
               <h3 className="font-heading font-bold text-3xl mb-6">Our Mission</h3>
               <p className="text-xl leading-relaxed max-w-4xl mx-auto">
                 We empower organizations to maximize efficiency and achieve sustainable growth
-                by streamlining financial processes, enhancing cross-department collaboration,
+                by streamlining financial processes, enhancing collaboration,
                 and implementing financial tools. We give our clients the freedom to focus on
                 what they do best—running their business—while we manage their financial complexities.
               </p>
@@ -275,23 +308,15 @@ const About = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">
-            Ready to Partner with Us?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Experience the difference that strategic financial guidance can make for your business.
-          </p>
+          <h2 className="font-heading font-bold text-4xl text-primary-900 mb-6">Ready to Partner with Us?</h2>
+          <p className="text-xl text-gray-600 mb-8">Experience the difference that strategic financial guidance can make for your business.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/booking">
-              <Button size="lg" className="bg-primary-900 hover:bg-primary-800 text-white">
-                Schedule Free Consultation
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white">
-                Get in Touch
-              </Button>
-            </Link>
+            <Button onClick={handleBookClick} size="lg" className="bg-primary-900 hover:bg-primary-800 text-white">
+              Schedule Free Consultation
+            </Button>
+            <Button onClick={handleContactClick} size="lg" variant="outline" className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white">
+              Get in Touch
+            </Button>
           </div>
         </div>
       </section>

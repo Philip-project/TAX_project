@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 // import Chatbot from '../components/ChatBot';
@@ -9,6 +10,22 @@ import { Calendar, Clock, MapPin, Phone, Mail } from 'lucide-react';
 
 const Booking = () => {
   const { toast } = useToast();
+  const location = useLocation();
+  const bookButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Handle scroll to booking button when component mounts or location changes
+  useEffect(() => {
+    if (location.hash === '#booking-section' && bookButtonRef.current) {
+      // Small delay to ensure the page is fully rendered
+      const timer = setTimeout(() => {
+        bookButtonRef.current?.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center' 
+        });
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,20 +51,21 @@ const Booking = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-12">
+      <section id="booking-section" className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Book Appointment Button - Centered at Top */}
           <div className="flex justify-center mb-12">
-           <Button
-  onClick={() => window.open(
-    "https://calendly.com/bandimahendra597/new-meeting?month=2025-08&date=2025-08-23",
-    "_blank"
-  )}
-  className="bg-primary-900 hover:bg-primary-800 text-white text-lg py-5 px-14"
-  size="lg"
->
-  Book Appointment
-</Button>
+            <Button
+              ref={bookButtonRef}
+              onClick={() => window.open(
+                "https://calendly.com/protaxbykc/30min",
+                "_blank"
+              )}
+              className="bg-primary-900 hover:bg-primary-800 text-white text-lg py-5 px-14"
+              size="lg"
+            >
+              Book Appointment
+            </Button>
           </div>
 
           {/* Three Cards Below - Compact version */}
@@ -87,7 +105,7 @@ const Booking = () => {
               <CardContent className="space-y-2 px-4 pb-4">
                 <div className="flex items-center space-x-2">
                   <Phone className="text-secondary-600" size={18} />
-                  <span className="text-gray-700">(475) 529-6839</span>
+                  <span className="text-gray-700">+1 (475) 529-6839</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="text-secondary-600" size={18} />

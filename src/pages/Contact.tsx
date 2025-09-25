@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -9,6 +10,12 @@ import { MapPin, Phone, Mail, Clock, MessageCircle, Users } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
+  const location = useLocation();
+  const contactFormRef = useRef<HTMLDivElement>(null);
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,66 +25,83 @@ const Contact = () => {
     message: ''
   });
   const { toast } = useToast();
+  const [loading, setLoading] = useState(false); // Added loading state
 
- const handleSubmit = async (e: React.FormEvent) => {
-   e.preventDefault();
- 
-   try {
-     const plainData = JSON.stringify({
-       formType: "contactForm",
-       ...formData
-     });
- 
-     const response = await fetch( 'https://script.google.com/macros/s/AKfycbz6CggoQmNdhL-z9HeHW2i8r1YOf6nbVscQIwFyAlbCR-Dzm69yOpPelpvzttkIm5gBXg/exec', {
-       method: 'POST',
-       headers: {
-         'Content-Type': 'text/plain;charset=utf-8'  // ✅ No preflight triggered!
-       },
-       body: plainData
-     });
- const responseText = await response.text();
- console.log("Raw Response:", responseText);
- 
- let result;
- try {
-   result = JSON.parse(responseText);
- } catch (err) {
-   console.error("Failed to parse JSON:", err);
-   toast({
-     title: "Error!",
-     description: "Invalid server response. Check console.",
-   });
-   return;
- }
- 
- 
-     if (result.result === 'success') {
-       toast({
-         title: "Message Sent!",
-         description: "We'll get back to you within 24 hours.",
-       });
-       setFormData({
-         name: '',
-         email: '',
-         phone: '',
-         company: '',
-         service: '',
-         message: ''
-       });
-     } else {
-       toast({
-         title: "Error!",
-         description: "Failed to submit form. Try again.",
-       });
-     }
-   } catch (error) {
-     console.error('Submission Error:', error);
-     toast({
-       title: "Network Error!",
-       description: "Unable to submit form. Please try again later.",
-     });
-   }
- };
+  // Handle scroll to contact form when component mounts or location changes
+  useEffect(() => {
+    if (location.hash === '#contact-form' && contactFormRef.current) {
+      const timer = setTimeout(() => {
+        contactFormRef.current?.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true); // Start loading
+
+    try {
+      const plainData = JSON.stringify({
+        formType: "contactForm",
+        ...formData
+      });
+
+      const response = await fetch('https://script.google.com/macros/s/AKfycbymaQdeFhxK_M8EYOqj1vfnTfXhhhztLuVEboQvFfxy6-27II8PW-UMCoHb6kDOGg1d5g/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'  // ✅ No preflight triggered!
+        },
+        body: plainData
+      });
+      const responseText = await response.text();
+      console.log("Raw Response:", responseText);
+
+      let result;
+      try {
+        result = JSON.parse(responseText);
+      } catch (err) {
+        console.error("Failed to parse JSON:", err);
+        toast({
+          title: "Error!",
+          description: "Invalid server response. Check console.",
+        });
+        setLoading(false); // Stop loading on error
+        return;
+      }
+
+      if (result.result === 'success') {
+        toast({
+          title: "Message Sent!",
+          description: "We'll get back to you within 24 hours.",
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        toast({
+          title: "Error!",
+          description: "Failed to submit form. Try again.",
+        });
+      }
+    } catch (error) {
+      console.error('Submission Error:', error);
+      toast({
+        title: "Network Error!",
+        description: "Unable to submit form. Please try again later.",
+      });
+    } finally {
+      setLoading(false); // Stop loading regardless of success or failure
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -90,7 +114,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      content: '(475) 529-6839',
+      content: '+1 (475) 529-6839',
       description: 'Call us during business hours'
     },
     {
@@ -111,18 +135,6 @@ const Contact = () => {
       content: '123 Main Street, Kansas City, MO 64111',
       description: 'Visit us by appointment'
     }
-    // {
-    //   icon: MapPin,
-    //   title: 'Location',
-    //   content: 'Connecticut, USA',
-    //   description: 'Serving clients nationwide'
-    // },
-    // {
-    //   icon: Users,
-    //   title: 'Social Media',
-    //   content: '@ProTaxKC',
-    //   description: 'Connect with us on LinkedIn'
-    // }
   ];
 
   const faqs = [
@@ -267,7 +279,7 @@ const Contact = () => {
       </section>
 
       {/* Moved Contact Form Section */}
-      <section className="py-20 bg-gray-50">
+      <section ref={contactFormRef} id="contact-form" className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-heading font-bold text-4xl text-primary-900 mb-4">
@@ -384,8 +396,19 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   className="w-full bg-primary-900 hover:bg-primary-800 text-white text-lg py-3"
+                  disabled={loading} // Disable button while loading
                 >
-                  Send Message
+                  {loading ? (
+                    <span className="flex items-center justify-center">
+                      <svg className="animate-spin h-5 w-5 mr-2 text-white" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </span>
+                  ) : (
+                    'Send Message'
+                  )}
                 </Button>
               </form>
             </CardContent>

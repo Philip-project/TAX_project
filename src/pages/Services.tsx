@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 import { FileText, Calculator, Briefcase, Users, CheckCircle, ArrowRight, Settings } from 'lucide-react';
 
 const Services = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // If there's a hash in the URL, scroll to that section
@@ -94,7 +94,7 @@ const Services = () => {
       services: [
         'Financial Strategy Development',
         'Board Meeting Preparation',
-        'Investor Relations Support',
+        // 'Investor Relations Support',
         'Risk Management',
         'Capital Structure Planning',
         'Software Implementation',
@@ -113,7 +113,10 @@ const Services = () => {
       title: 'Administrative Services',
       description: 'Part-time CFO expertise without the full-time cost, perfect for growing businesses.',
       services: [
-        'P&L Service'
+        'P&L Support',
+        'Ad Hoc Support/Special projects',
+        'Assist with special reporting needs',
+        'Assistance with non frequent reports/special reports',
       ],
       benefits: [
         'C-level financial expertise',
@@ -127,13 +130,13 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-900 to-secondary-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-heading font-bold text-5xl mb-6">Our Services</h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            Comprehensive financial solutions tailored to your business needs. 
+            Comprehensive financial solutions tailored to your business needs.
             From tax preparation to strategic CFO services, we've got you covered.
           </p>
         </div>
@@ -146,7 +149,7 @@ const Services = () => {
             {detailedServices.map((service, index) => {
               // Generate consistent ID for each service section
               let serviceId = service.title.toLowerCase().replace(/\s+/g, '-');
-              
+
               // Special cases to match footer links exactly
               if (service.title.toLowerCase().includes('cfo')) {
                 serviceId = 'external-cfo';
@@ -159,10 +162,11 @@ const Services = () => {
               } else if (service.id) {
                 serviceId = service.id;
               }
-              
+
               return (
                 <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
-                  <div id={serviceId} className={`${index % 2 === 1 ? 'lg:order-2' : ''} scroll-mt-24`}>
+                  {/* Service Details always on the left */}
+                  <div id={serviceId} className="scroll-mt-24">
                     <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mb-6">
                       <service.icon className="text-primary-900" size={32} />
                     </div>
@@ -170,7 +174,7 @@ const Services = () => {
                       {service.title}
                     </h2>
                     <p className="text-lg text-gray-600 mb-6">{service.description}</p>
-                    
+
                     <div className="mb-8">
                       <h3 className="font-semibold text-xl text-primary-900 mb-4">Key Benefits:</h3>
                       <ul className="space-y-2">
@@ -183,16 +187,20 @@ const Services = () => {
                       </ul>
                     </div>
 
-                    <Link to="/booking">
-                      <Button className="bg-primary-900 text-white transition-all duration-300 transform hover:bg-primary-800 hover:scale-105 hover:shadow-lg">
-                        Get Started
-                        <ArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" size={20} />
-                      </Button>
-                    </Link>
-
+                    <Button
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                        navigate('/booking');
+                      }}
+                      className="bg-primary-900 text-white transition-all duration-300 transform hover:bg-primary-800 hover:scale-105 hover:shadow-lg"
+                    >
+                      Get Started
+                      <ArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" size={20} />
+                    </Button>
                   </div>
-                  
-                  <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+
+                  {/* What's Included always on the right */}
+                  <div>
                     <Card className="shadow-xl border border-transparent hover:border-primary-300 transition-transform duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer">
                       <CardHeader>
                         <CardTitle className="text-xl text-primary-900">
@@ -228,16 +236,26 @@ const Services = () => {
             Schedule a free consultation to discuss your specific needs and learn how we can help your business thrive.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/booking">
-              <Button size="lg" className="bg-primary-900 hover:bg-primary-800 text-white">
-                Schedule Free Consultation
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white">
-                Contact Us
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              className="bg-primary-900 hover:bg-primary-800 text-white"
+              onClick={() => {
+                window.scrollTo(0, 0);
+                navigate('/booking');
+              }}
+            >
+              Schedule Free Consultation
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white"
+              onClick={() => {
+                navigate('/contact#contact-form');
+              }}
+            >
+              Contact Us
+            </Button>
           </div>
         </div>
       </section>
