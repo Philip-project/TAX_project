@@ -314,11 +314,9 @@ const About = () => {
           <Card className="bg-gradient-to-r from-primary-900 to-secondary-800 text-white border-0">
             <CardContent className="p-12 text-center">
               <h3 className="font-heading font-bold text-3xl mb-6">Our Mission</h3>
-              <p className="text-xl leading-relaxed max-w-4xl mx-auto">
-                We empower organizations to maximize efficiency and achieve sustainable growth
-                by streamlining financial processes, enhancing collaboration,
-                and implementing financial tools. We give our clients the freedom to focus on
-                what they do best—running their business—while we manage their financial complexities.
+              {/* <p className="text-xl leading-relaxed max-w-4xl mx-auto"> */}
+                <p className="text-xl text-justify italic">
+                We empower organizations to maximize efficiency and achieve sustainable growth by streamlining financial processes, enhancing collaboration,and implementing financial tools. We give our clients the freedom to focus on what they do best—running their business—while we manage their financial complexities.
               </p>
             </CardContent>
           </Card>
